@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>EduClassroom Games</title>
+<title>EduClassroom</title>
 
-<!-- Default favicon -->
 <link id="favicon" rel="icon" href="data:image/svg+xml,
 <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
 <text y=%22.9em%22 font-size=%2290%22>🌌</text>
@@ -40,9 +39,7 @@ body {
     transition: background .4s, color .4s;
 }
 
-/* =========================
-   SPACE
-========================= */
+/* SPACE */
 
 #space {
     position: fixed;
@@ -105,9 +102,7 @@ body {
     }
 }
 
-/* =========================
-   NAV
-========================= */
+/* NAVIGATION */
 
 nav {
     position: fixed;
@@ -177,9 +172,7 @@ nav {
     background: rgba(120,70,220,.35);
 }
 
-/* =========================
-   SETTINGS PANEL
-========================= */
+/* SETTINGS */
 
 .settings-overlay {
     position: fixed;
@@ -251,11 +244,8 @@ nav {
 .close-settings {
     background: none;
     border: none;
-
     color: #aaa;
-
     font-size: 28px;
-
     cursor: pointer;
 }
 
@@ -265,11 +255,8 @@ nav {
 
 .setting label {
     display: block;
-
     margin-bottom: 10px;
-
     color: #bfc2d8;
-
     font-size: 14px;
 }
 
@@ -309,11 +296,12 @@ nav {
     border: none;
     border-radius: 12px;
 
-    background: linear-gradient(
-        90deg,
-        var(--accent),
-        var(--accent2)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--accent2)
+        );
 
     color: white;
 
@@ -359,9 +347,7 @@ nav {
     line-height: 1.5;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
     min-height: 100vh;
@@ -481,9 +467,7 @@ nav {
         0 0 35px rgba(140,80,255,.7);
 }
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search-container {
     max-width: 600px;
@@ -522,9 +506,7 @@ nav {
         0 0 30px rgba(130,70,255,.25);
 }
 
-/* =========================
-   GAMES
-========================= */
+/* LIBRARY */
 
 .section {
     padding: 100px 7%;
@@ -532,13 +514,11 @@ nav {
 
 .section-title {
     text-align: center;
-
     margin-bottom: 50px;
 }
 
 .section-title h2 {
     font-size: 42px;
-
     margin-bottom: 12px;
 }
 
@@ -593,29 +573,23 @@ nav {
 
 .icon {
     font-size: 48px;
-
     margin-bottom: 20px;
 }
 
 .card h3 {
     font-size: 24px;
-
     margin-bottom: 12px;
 }
 
 .card p {
     color: #8e93aa;
-
     line-height: 1.6;
-
     margin-bottom: 15px;
 }
 
 .play-button {
     margin-top: 8px;
-
     padding: 11px 20px;
-
     font-size: 14px;
 }
 
@@ -631,9 +605,7 @@ nav {
     padding: 50px;
 }
 
-/* =========================
-   ABOUT / FOOTER
-========================= */
+/* ABOUT */
 
 .info {
     max-width: 850px;
@@ -647,7 +619,6 @@ nav {
 
 .info h2 {
     font-size: 40px;
-
     margin-bottom: 20px;
 }
 
@@ -658,6 +629,8 @@ nav {
 
     font-size: 17px;
 }
+
+/* FOOTER */
 
 footer {
     padding: 50px;
@@ -670,9 +643,7 @@ footer {
     color: #62677e;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:700px) {
 
@@ -682,7 +653,6 @@ footer {
 
     .hero h1 {
         font-size: 55px;
-
         letter-spacing: -2px;
     }
 
@@ -705,9 +675,7 @@ footer {
 <div class="galaxy"></div>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -719,7 +687,7 @@ footer {
 
         <a href="#">Home</a>
 
-        <a href="#games">Games</a>
+        <a href="#games">Library</a>
 
         <a href="#about">About</a>
 
@@ -736,19 +704,12 @@ footer {
 </nav>
 
 
-<!-- =========================
-     SETTINGS OVERLAY
-========================= -->
+<!-- SETTINGS -->
 
 <div
     class="settings-overlay"
     id="settingsOverlay"
 ></div>
-
-
-<!-- =========================
-     SETTINGS PANEL
-========================= -->
 
 <div
     class="settings-panel"
@@ -767,9 +728,6 @@ footer {
         </button>
 
     </div>
-
-
-    <!-- THEME -->
 
     <div class="setting">
 
@@ -804,8 +762,6 @@ footer {
     </div>
 
 
-    <!-- TAB TITLE -->
-
     <div class="setting">
 
         <label for="titleInput">
@@ -816,17 +772,15 @@ footer {
             id="titleInput"
             type="text"
             maxlength="40"
-            placeholder="EduClassroom Games"
+            placeholder="EduClassroom"
         >
 
         <div class="small-note">
-            This changes the name shown on the browser tab.
+            Change the name shown on the browser tab.
         </div>
 
     </div>
 
-
-    <!-- FAVICON -->
 
     <div class="setting">
 
@@ -841,8 +795,7 @@ footer {
         >
 
         <div class="small-note">
-            Paste a direct image URL ending in .png, .jpg, .jpeg,
-            .gif, or .ico.
+            Paste a direct image URL for your icon.
         </div>
 
     </div>
@@ -865,9 +818,7 @@ footer {
 </div>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -882,16 +833,17 @@ footer {
         </h1>
 
         <p>
-            Welcome to your universe of games.
-            Explore the collection, find something
-            fun to play, and discover new experiences.
+            Welcome to your universe of interactive
+            experiences. Explore the collection,
+            find something fun, and discover
+            something new.
         </p>
 
         <a
             href="#games"
             class="start-button"
         >
-            Browse Games →
+            Browse Library →
         </a>
 
 
@@ -901,7 +853,7 @@ footer {
                 class="search"
                 id="search"
                 type="text"
-                placeholder="🔎  Search for a game..."
+                placeholder="🔎  Search..."
             >
 
         </div>
@@ -911,9 +863,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     GAME LIBRARY
-========================= -->
+<!-- LIBRARY -->
 
 <section
     class="section"
@@ -923,11 +873,11 @@ footer {
     <div class="section-title">
 
         <h2>
-            Game Library
+            Library
         </h2>
 
         <p>
-            Choose a game and start playing.
+            Choose something to play.
         </p>
 
     </div>
@@ -943,7 +893,7 @@ footer {
 
         <div
             class="card"
-            data-name="hangman word guessing words puzzle"
+            data-name="hangman word guessing puzzle"
         >
 
             <div class="icon">
@@ -963,7 +913,7 @@ footer {
                 class="play-button"
                 href="pages/hangman/"
             >
-                Play Game →
+                Play →
             </a>
 
         </div>
@@ -993,7 +943,7 @@ footer {
                 class="play-button"
                 href="pages/rooftop-snipers/"
             >
-                Play Game →
+                Play →
             </a>
 
         </div>
@@ -1003,15 +953,13 @@ footer {
 
 
     <div id="noResults">
-        No games found. Try another search.
+        Nothing found. Try another search.
     </div>
 
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section
     class="info"
@@ -1019,28 +967,25 @@ footer {
 >
 
     <h2>
-        Your Game Universe
+        Explore
     </h2>
 
     <p>
-        Browse the game library, search for
-        something specific, and discover new
-        games as they are added.
+        Browse the library, search for something
+        specific, and discover something new.
     </p>
 
 </section>
 
 
 <footer>
-    © 2026 EduClassroom • Game Library
+    © 2026 EduClassroom
 </footer>
 
 
 <script>
 
-/* ==========================================
-   STARFIELD
-========================================== */
+/* STARFIELD */
 
 const canvas =
     document.getElementById("space");
@@ -1144,7 +1089,6 @@ function animateStars(time) {
         canvas.height
     );
 
-
     for(const star of stars) {
 
         const dx =
@@ -1159,9 +1103,7 @@ function animateStars(time) {
                 dy * dy
             );
 
-
         const interactionRadius = 130;
-
 
         if(
             distance <
@@ -1186,9 +1128,7 @@ function animateStars(time) {
                 * 4;
         }
 
-
         star.y += star.speed;
-
 
         if(
             star.y >
@@ -1200,9 +1140,7 @@ function animateStars(time) {
             star.x =
                 Math.random() *
                 canvas.width;
-
         }
-
 
         if(star.x < -10)
             star.x =
@@ -1214,14 +1152,12 @@ function animateStars(time) {
         )
             star.x = -10;
 
-
         const alpha =
             star.brightness +
             Math.sin(
                 time * .002 +
                 star.twinkle
             ) * .2;
-
 
         ctx.beginPath();
 
@@ -1240,11 +1176,9 @@ function animateStars(time) {
 
     }
 
-
     requestAnimationFrame(
         animateStars
     );
-
 }
 
 requestAnimationFrame(
@@ -1252,9 +1186,7 @@ requestAnimationFrame(
 );
 
 
-/* ==========================================
-   GAME SEARCH
-========================================== */
+/* SEARCH */
 
 const search =
     document.getElementById("search");
@@ -1277,13 +1209,11 @@ search.addEventListener(
 
         let visibleGames = 0;
 
-
         cards.forEach(card => {
 
             const keywords =
                 card.dataset.name
                 .toLowerCase();
-
 
             if(
                 keywords.includes(query) ||
@@ -1299,11 +1229,9 @@ search.addEventListener(
 
                 card.style.display =
                     "none";
-
             }
 
         });
-
 
         noResults.style.display =
             visibleGames === 0
@@ -1314,9 +1242,7 @@ search.addEventListener(
 );
 
 
-/* ==========================================
-   SETTINGS
-========================================== */
+/* SETTINGS */
 
 const settingsButton =
     document.getElementById(
@@ -1344,7 +1270,6 @@ function openSettings() {
     settingsPanel.classList.add("open");
 
     settingsOverlay.classList.add("open");
-
 }
 
 
@@ -1353,7 +1278,6 @@ function closeSettingsPanel() {
     settingsPanel.classList.remove("open");
 
     settingsOverlay.classList.remove("open");
-
 }
 
 
@@ -1373,9 +1297,7 @@ settingsOverlay.addEventListener(
 );
 
 
-/* ==========================================
-   THEMES
-========================================== */
+/* THEMES */
 
 const themeSelect =
     document.getElementById(
@@ -1386,63 +1308,38 @@ const themeSelect =
 const themes = {
 
     galaxy: {
-
         background: "#02030a",
-
         accent: "#8b5cf6",
-
         accent2: "#a855f7",
-
         card: "rgba(20,15,45,.75)"
-
     },
 
     blue: {
-
         background: "#020812",
-
         accent: "#3b82f6",
-
         accent2: "#06b6d4",
-
         card: "rgba(10,25,50,.75)"
-
     },
 
     red: {
-
         background: "#0d0204",
-
         accent: "#ef4444",
-
         accent2: "#f97316",
-
         card: "rgba(50,10,15,.75)"
-
     },
 
     green: {
-
         background: "#020c08",
-
         accent: "#10b981",
-
         accent2: "#22c55e",
-
         card: "rgba(5,35,25,.75)"
-
     },
 
     pink: {
-
         background: "#0c020b",
-
         accent: "#ec4899",
-
         accent2: "#d946ef",
-
         card: "rgba(45,8,40,.75)"
-
     }
 
 };
@@ -1453,7 +1350,6 @@ function applyTheme(themeName) {
     const theme =
         themes[themeName] ||
         themes.galaxy;
-
 
     document.documentElement
         .style
@@ -1482,13 +1378,10 @@ function applyTheme(themeName) {
             "--card",
             theme.card
         );
-
 }
 
 
-/* ==========================================
-   TAB TITLE
-========================================== */
+/* TAB TITLE */
 
 const titleInput =
     document.getElementById(
@@ -1499,16 +1392,13 @@ const titleInput =
 function applyTitle(title) {
 
     if(!title)
-        title = "EduClassroom Games";
+        title = "EduClassroom";
 
     document.title = title;
-
 }
 
 
-/* ==========================================
-   FAVICON
-========================================== */
+/* FAVICON */
 
 const iconInput =
     document.getElementById(
@@ -1533,18 +1423,13 @@ function applyIcon(url) {
             "</svg>";
 
         return;
-
     }
 
-
     favicon.href = url;
-
 }
 
 
-/* ==========================================
-   SAVE SETTINGS
-========================================== */
+/* SAVE */
 
 document.getElementById(
     "saveSettings"
@@ -1565,12 +1450,10 @@ document.getElementById(
 
         };
 
-
         localStorage.setItem(
             "educlassroomSettings",
             JSON.stringify(settings)
         );
-
 
         applyTheme(
             settings.theme
@@ -1584,16 +1467,12 @@ document.getElementById(
             settings.icon
         );
 
-
         closeSettingsPanel();
-
     }
 );
 
 
-/* ==========================================
-   RESET SETTINGS
-========================================== */
+/* RESET */
 
 document.getElementById(
     "resetSettings"
@@ -1605,32 +1484,27 @@ document.getElementById(
             "educlassroomSettings"
         );
 
-
         themeSelect.value =
             "galaxy";
 
         titleInput.value =
-            "EduClassroom Games";
+            "EduClassroom";
 
         iconInput.value =
             "";
 
-
         applyTheme("galaxy");
 
         applyTitle(
-            "EduClassroom Games"
+            "EduClassroom"
         );
 
         applyIcon("");
-
     }
 );
 
 
-/* ==========================================
-   LOAD SAVED SETTINGS
-========================================== */
+/* LOAD SAVED SETTINGS */
 
 function loadSettings() {
 
@@ -1639,27 +1513,23 @@ function loadSettings() {
             "educlassroomSettings"
         );
 
-
     if(!saved) {
 
         applyTheme("galaxy");
 
         applyTitle(
-            "EduClassroom Games"
+            "EduClassroom"
         );
 
         applyIcon("");
 
         return;
-
     }
-
 
     try {
 
         const settings =
             JSON.parse(saved);
-
 
         themeSelect.value =
             settings.theme ||
@@ -1667,12 +1537,11 @@ function loadSettings() {
 
         titleInput.value =
             settings.title ||
-            "EduClassroom Games";
+            "EduClassroom";
 
         iconInput.value =
             settings.icon ||
             "";
-
 
         applyTheme(
             settings.theme ||
@@ -1681,14 +1550,13 @@ function loadSettings() {
 
         applyTitle(
             settings.title ||
-            "EduClassroom Games"
+            "EduClassroom"
         );
 
         applyIcon(
             settings.icon ||
             ""
         );
-
 
     } catch(error) {
 
@@ -1699,7 +1567,6 @@ function loadSettings() {
         applyTheme("galaxy");
 
     }
-
 }
 
 
