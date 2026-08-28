@@ -1,1 +1,589 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #02030a;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   SPACE
+========================= */
+
+#space {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -5;
+}
+
+.galaxy {
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 45%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-20deg);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255,255,255,.8),
+            rgba(160,110,255,.55) 5%,
+            rgba(100,50,220,.25) 20%,
+            transparent 65%
+        );
+
+    filter: blur(10px);
+
+    opacity: .55;
+
+    pointer-events: none;
+
+    z-index: -4;
+
+    animation: galaxySpin 50s linear infinite;
+}
+
+@keyframes galaxySpin {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(2,3,10,.65);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid rgba(150,100,255,.15);
+
+    z-index: 50;
+}
+
+.logo {
+    font-size: 24px;
+
+    font-weight: 800;
+
+    color: white;
+
+    text-decoration: none;
+}
+
+.logo span {
+    color: #a76cff;
+}
+
+.back {
+    color: #aeb1c7;
+
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+.back:hover {
+    color: white;
+
+    text-shadow:
+        0 0 15px #9b6cff;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 130px 20px 60px;
+}
+
+.game {
+    width: 100%;
+    max-width: 900px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid rgba(160,110,255,.4);
+
+    background:
+        rgba(120,60,220,.1);
+
+    color: #c9b6ff;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+.title h1 {
+    font-size: clamp(55px, 9vw, 85px);
+
+    letter-spacing: -4px;
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+}
+
+.title h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #a66cff,
+            #6ca8ff,
+            #d18cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.title p {
+    color: #9297ad;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel {
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,18,55,.82),
+            rgba(5,7,20,.88)
+        );
+
+    border:
+        1px solid rgba(150,100,255,.2);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.35);
+
+    backdrop-filter: blur(15px);
+
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.panel h2 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.muted {
+    color: #777d96;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   LEVELS
+========================= */
+
+.levels {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(130px, 1fr));
+
+    gap: 14px;
+}
+
+.levels button {
+    padding: 20px 10px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid rgba(150,100,255,.2);
+
+    background:
+        rgba(100,60,180,.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.levels button:hover {
+    transform: translateY(-5px);
+
+    border-color: #a66cff;
+
+    background:
+        rgba(130,70,230,.18);
+
+    box-shadow:
+        0 10px 30px rgba(100,50,200,.25);
+}
+
+.levels strong {
+    display: block;
+
+    font-size: 16px;
+}
+
+.levels small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #858aa1;
+}
+
+
+/* =========================
+   GAME TOP
+========================= */
+
+.game-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    text-align: left;
+}
+
+.label {
+    display: block;
+
+    color: #6f748b;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+.game-top strong {
+    color: #c9b4ff;
+}
+
+
+/* =========================
+   HANGMAN CANVAS
+========================= */
+
+#hangman {
+    max-width: 100%;
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,.15);
+
+    border:
+        1px solid rgba(150,100,255,.12);
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   WORD
+========================= */
+
+.word {
+    min-height: 55px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin: 15px 0;
+}
+
+.letter {
+    width: 35px;
+
+    height: 45px;
+
+    border-bottom:
+        3px solid #a66cff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    color: white;
+
+    text-shadow:
+        0 0 12px #9a63ff;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    min-height: 28px;
+
+    color: #aaaec3;
+
+    margin: 15px;
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+.keyboard {
+    max-width: 650px;
+
+    margin: 20px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.key {
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(150,100,255,.25);
+
+    background:
+        rgba(100,60,180,.1);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.key:hover:not(:disabled) {
+    background:
+        rgba(140,80,240,.3);
+
+    border-color: #a66cff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(140,80,255,.3);
+}
+
+.key:disabled {
+    opacity: .25;
+
+    cursor: default;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.actions button {
+    padding: 12px 22px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid rgba(150,100,255,.3);
+
+    background:
+        rgba(100,60,180,.1);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.actions button:hover {
+    background:
+        rgba(130,70,230,.25);
+
+    border-color: #a66cff;
+
+    box-shadow:
+        0 0 20px rgba(130,70,230,.25);
+}
+
+
+/* =========================
+   HINT
+========================= */
+
+.hint {
+    min-height: 25px;
+
+    margin-top: 15px;
+
+    color: #c2a9ff;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    nav {
+        padding: 18px 5%;
+    }
+
+    .back {
+        font-size: 14px;
+    }
+
+    main {
+        padding:
+            110px 12px 40px;
+    }
+
+    .panel {
+        padding: 22px 15px;
+    }
+
+    .key {
+        width: 34px;
+        height: 38px;
+    }
+
+    .letter {
+        width: 27px;
+    }
+
+}
