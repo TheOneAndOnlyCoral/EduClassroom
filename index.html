@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduClassroom</title>
+<title>EduClassroom Games</title>
 
 <style>
 * {
@@ -41,8 +41,6 @@ body {
             #02030a 70%
         );
 }
-
-/* Extra galaxy glow */
 
 .galaxy {
     position: fixed;
@@ -228,7 +226,8 @@ nav {
    BUTTON
 ========================= */
 
-.start-button {
+.start-button,
+.play-button {
     display: inline-block;
 
     margin-top: 35px;
@@ -252,7 +251,8 @@ nav {
     transition: .3s;
 }
 
-.start-button:hover {
+.start-button:hover,
+.play-button:hover {
     transform: translateY(-4px) scale(1.04);
 
     box-shadow:
@@ -302,7 +302,7 @@ nav {
 }
 
 /* =========================
-   SUBJECTS
+   GAMES
 ========================= */
 
 .section {
@@ -324,20 +324,20 @@ nav {
     color: #81869e;
 }
 
-.subject-grid {
+.game-grid {
     max-width: 1150px;
     margin: auto;
 
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
+        repeat(auto-fit, minmax(260px, 1fr));
 
     gap: 22px;
 }
 
 /* =========================
-   CARDS
+   GAME CARDS
 ========================= */
 
 .card {
@@ -345,7 +345,7 @@ nav {
 
     padding: 30px;
 
-    min-height: 250px;
+    min-height: 290px;
 
     border-radius: 22px;
 
@@ -407,7 +407,7 @@ nav {
 }
 
 .icon {
-    font-size: 42px;
+    font-size: 48px;
 
     margin-bottom: 20px;
 
@@ -416,13 +416,36 @@ nav {
 }
 
 .card h3 {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 12px;
 }
 
 .card p {
     color: #8e93aa;
     line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.play-button {
+    margin-top: 8px;
+    padding: 11px 20px;
+    font-size: 14px;
+}
+
+/* =========================
+   NO RESULTS
+========================= */
+
+#noResults {
+    display: none;
+
+    text-align: center;
+
+    color: #777b93;
+
+    font-size: 18px;
+
+    padding: 50px;
 }
 
 /* =========================
@@ -522,12 +545,9 @@ footer {
 
 <body>
 
-<!-- Animated star canvas -->
 <canvas id="space"></canvas>
 
-<!-- CSS galaxy -->
 <div class="galaxy"></div>
-
 
 <!-- =========================
      NAVIGATION
@@ -541,7 +561,7 @@ footer {
 
     <div class="nav-links">
         <a href="#">Home</a>
-        <a href="#subjects">Subjects</a>
+        <a href="#games">Games</a>
         <a href="#about">About</a>
     </div>
 
@@ -557,7 +577,7 @@ footer {
     <div class="hero-content">
 
         <div class="badge">
-            ✦ EXPLORE • LEARN • ACHIEVE
+            ✦ EXPLORE • PLAY • DISCOVER
         </div>
 
         <h1>
@@ -565,14 +585,13 @@ footer {
         </h1>
 
         <p>
-            Your universe of knowledge.
-            Explore subjects, build skills,
-            and discover new ideas through
-            learning.
+            Welcome to your universe of games.
+            Explore the collection, find something
+            fun to play, and discover new experiences.
         </p>
 
-        <a href="#subjects" class="start-button">
-            Start Learning →
+        <a href="#games" class="start-button">
+            Browse Games →
         </a>
 
         <div class="search-container">
@@ -581,7 +600,7 @@ footer {
                 class="search"
                 id="search"
                 type="text"
-                placeholder="🔎  Search for a subject..."
+                placeholder="🔎  Search for a game..."
             >
 
         </div>
@@ -592,146 +611,86 @@ footer {
 
 
 <!-- =========================
-     SUBJECTS
+     GAME LIBRARY
 ========================= -->
 
-<section class="section" id="subjects">
+<section class="section" id="games">
 
     <div class="section-title">
 
         <h2>
-            Explore Subjects
+            Game Library
         </h2>
 
         <p>
-            Choose a subject and begin your journey.
+            Choose a game and start playing.
         </p>
 
     </div>
 
 
-    <div class="subject-grid" id="subjectGrid">
+    <div class="game-grid" id="gameGrid">
 
+        <!-- HANGMAN -->
 
         <div
             class="card"
-            data-name="math mathematics algebra geometry"
+            data-name="hangman word guessing words puzzle"
         >
 
-            <div class="icon">π</div>
+            <div class="icon">🎯</div>
 
             <h3>
-                Mathematics
+                Hangman
             </h3>
 
             <p>
-                Explore numbers, equations,
-                algebra, geometry, and
-                problem solving.
+                Guess the hidden word before
+                you run out of chances.
             </p>
+
+            <a
+                class="play-button"
+                href="pages/hangman/"
+            >
+                Play Game →
+            </a>
 
         </div>
 
 
-        <div
-            class="card"
-            data-name="science biology chemistry physics"
-        >
-
-            <div class="icon">⚗</div>
-
-            <h3>
-                Science
-            </h3>
-
-            <p>
-                Discover biology, chemistry,
-                physics, experiments, and
-                the world around us.
-            </p>
-
-        </div>
-
+        <!-- ROOFTOP SNIPERS -->
 
         <div
             class="card"
-            data-name="english reading writing grammar"
+            data-name="rooftop snipers shooting action multiplayer"
         >
 
-            <div class="icon">📖</div>
+            <div class="icon">🎮</div>
 
             <h3>
-                English
+                Rooftop Snipers
             </h3>
 
             <p>
-                Improve reading, writing,
-                grammar, vocabulary, and
-                comprehension.
+                Battle your opponent on the
+                rooftop and knock them off.
             </p>
+
+            <a
+                class="play-button"
+                href="pages/rooftop-snipers/"
+            >
+                Play Game →
+            </a>
 
         </div>
 
-
-        <div
-            class="card"
-            data-name="history geography social studies"
-        >
-
-            <div class="icon">⌛</div>
-
-            <h3>
-                History
-            </h3>
-
-            <p>
-                Learn about important events,
-                civilizations, people, and
-                places.
-            </p>
-
-        </div>
+    </div>
 
 
-        <div
-            class="card"
-            data-name="computer science coding technology"
-        >
-
-            <div class="icon">&lt;/&gt;</div>
-
-            <h3>
-                Computer Science
-            </h3>
-
-            <p>
-                Learn about computers,
-                programming, technology,
-                and digital concepts.
-            </p>
-
-        </div>
-
-
-        <div
-            class="card"
-            data-name="study skills learning"
-        >
-
-            <div class="icon">🧠</div>
-
-            <h3>
-                Study Skills
-            </h3>
-
-            <p>
-                Discover techniques for
-                studying smarter, staying
-                organized, and learning.
-            </p>
-
-        </div>
-
+    <div id="noResults">
+        No games found. Try another search.
     </div>
 
 </section>
@@ -744,15 +703,13 @@ footer {
 <section class="info" id="about">
 
     <h2>
-        Learning Made Simple
+        Your Game Universe
     </h2>
 
     <p>
-        EduClassroom brings useful educational
-        topics together in one easy-to-use
-        learning environment. Explore subjects,
-        review important concepts, and continue
-        learning at your own pace.
+        Browse the game library, search for
+        something specific, and discover new
+        games as they are added.
     </p>
 
 </section>
@@ -761,7 +718,7 @@ footer {
 <footer>
 
     © 2026 EduClassroom
-    • Educational Resource
+    • Game Library
 
 </footer>
 
@@ -789,6 +746,8 @@ function resizeCanvas() {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    createStars();
 
 }
 
@@ -866,10 +825,6 @@ function animateStars(time) {
 
     for(const star of stars) {
 
-        /*
-         * Distance from mouse
-         */
-
         const dx = star.x - mouse.x;
         const dy = star.y - mouse.y;
 
@@ -877,9 +832,7 @@ function animateStars(time) {
             Math.sqrt(dx * dx + dy * dy);
 
 
-        /*
-         * Mouse repulsion
-         */
+        /* Mouse repulsion */
 
         const interactionRadius = 130;
 
@@ -909,16 +862,12 @@ function animateStars(time) {
         }
 
 
-        /*
-         * Slowly drift stars
-         */
+        /* Slowly drift stars */
 
         star.y += star.speed;
 
 
-        /*
-         * Wrap around screen
-         */
+        /* Wrap around screen */
 
         if(star.y > canvas.height + 5) {
 
@@ -932,8 +881,18 @@ function animateStars(time) {
 
 
         /*
-         * Twinkle
+         * Keep stars on screen after
+         * mouse interaction
          */
+
+        if(star.x < -10)
+            star.x = canvas.width + 10;
+
+        if(star.x > canvas.width + 10)
+            star.x = -10;
+
+
+        /* Twinkle */
 
         const alpha =
             star.brightness +
@@ -959,9 +918,7 @@ function animateStars(time) {
         ctx.fill();
 
 
-        /*
-         * Glow around brighter stars
-         */
+        /* Star glow */
 
         if(star.size > 1.3) {
 
@@ -993,7 +950,7 @@ requestAnimationFrame(animateStars);
 
 
 /* ==========================================
-   SEARCH
+   GAME SEARCH
 ========================================== */
 
 const search =
@@ -1001,6 +958,9 @@ const search =
 
 const cards =
     document.querySelectorAll(".card");
+
+const noResults =
+    document.getElementById("noResults");
 
 
 search.addEventListener(
@@ -1010,11 +970,13 @@ search.addEventListener(
         const query =
             search.value.toLowerCase().trim();
 
+        let visibleGames = 0;
+
 
         cards.forEach(card => {
 
             const keywords =
-                card.dataset.name;
+                card.dataset.name.toLowerCase();
 
 
             if(
@@ -1024,6 +986,8 @@ search.addEventListener(
 
                 card.style.display = "";
 
+                visibleGames++;
+
             } else {
 
                 card.style.display = "none";
@@ -1031,6 +995,17 @@ search.addEventListener(
             }
 
         });
+
+
+        if(visibleGames === 0) {
+
+            noResults.style.display = "block";
+
+        } else {
+
+            noResults.style.display = "none";
+
+        }
 
     }
 );
