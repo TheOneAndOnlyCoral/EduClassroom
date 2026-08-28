@@ -1,2 +1,137 @@
-<h1>Hangman is working!</h1>
-<p>This is my Hangman game.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hangman • EduClassroom Games</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="space"></canvas>
+
+    <div class="galaxy"></div>
+
+    <nav>
+        <a class="logo" href="../../index.html">
+            Edu<span>Classroom</span>
+        </a>
+
+        <a class="back" href="../../index.html">
+            ← Back to Games
+        </a>
+    </nav>
+
+    <main>
+
+        <section class="game">
+
+            <div class="title">
+                <div class="badge">✦ COSMIC GAME</div>
+
+                <h1>Hang<span>man</span></h1>
+
+                <p>
+                    Guess the hidden word before the hangman is complete.
+                </p>
+            </div>
+
+            <div id="levelScreen" class="panel">
+
+                <h2>Choose Your Difficulty</h2>
+
+                <p class="muted">
+                    Higher levels contain more difficult words.
+                </p>
+
+                <div class="levels">
+
+                    <button onclick="startGame(1)">
+                        <strong>LEVEL 1</strong>
+                        <small>Easy</small>
+                    </button>
+
+                    <button onclick="startGame(2)">
+                        <strong>LEVEL 2</strong>
+                        <small>Normal</small>
+                    </button>
+
+                    <button onclick="startGame(3)">
+                        <strong>LEVEL 3</strong>
+                        <small>Hard</small>
+                    </button>
+
+                    <button onclick="startGame(4)">
+                        <strong>LEVEL 4</strong>
+                        <small>Expert</small>
+                    </button>
+
+                    <button onclick="startGame(5)">
+                        <strong>LEVEL 5</strong>
+                        <small>Extreme</small>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="gameScreen" class="panel hidden">
+
+                <div class="game-top">
+
+                    <div>
+                        <span class="label">DIFFICULTY</span>
+                        <strong id="currentLevel">LEVEL 1</strong>
+                    </div>
+
+                    <div>
+                        <span class="label">LIVES</span>
+                        <strong id="lives">10</strong>
+                    </div>
+
+                </div>
+
+
+                <canvas id="hangman" width="240" height="200"></canvas>
+
+
+                <div id="word" class="word"></div>
+
+
+                <p id="message" class="message">
+                    Choose a letter!
+                </p>
+
+
+                <div id="keyboard" class="keyboard"></div>
+
+
+                <div class="actions">
+
+                    <button id="hintButton" class="secondary">
+                        💡 Hint
+                    </button>
+
+                    <button id="restartButton" class="secondary">
+                        ↻ Restart
+                    </button>
+
+                </div>
+
+
+                <p id="hint" class="hint"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
