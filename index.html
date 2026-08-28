@@ -1,10 +1,467 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>EduClassroom</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduClassroom</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080b14;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Animated background */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(70, 100, 255, .18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(150, 70, 255, .15), transparent 30%),
+        #080b14;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
+
+/* Navbar */
+
+nav {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+    background: rgba(8,11,20,.65);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.logo span {
+    color: #7c8cff;
+}
+
+nav a {
+    color: #c9cce0;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: .25s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* Hero */
+
+.hero {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: fadeUp 1s ease;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid rgba(124,140,255,.35);
+    background: rgba(124,140,255,.08);
+    border-radius: 50px;
+    color: #aeb8ff;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(50px, 8vw, 90px);
+    line-height: .95;
+    margin-bottom: 25px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #ffffff, #8290ff, #c58cff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #aeb3c9;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* Search */
+
+.search-container {
+    margin: 35px auto 0;
+    max-width: 600px;
+}
+
+.search {
+    width: 100%;
+    padding: 17px 22px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.05);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: .3s;
+}
+
+.search:focus {
+    border-color: #7c8cff;
+    box-shadow: 0 0 25px rgba(124,140,255,.2);
+}
+
+/* Subjects */
+
+.section {
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #858ba5;
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    position: relative;
+    padding: 30px;
+    min-height: 210px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #7c8cff;
+    filter: blur(70px);
+    opacity: 0;
+    top: -50px;
+    right: -50px;
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(124,140,255,.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+.card:hover::before {
+    opacity: .25;
+}
+
+.icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #9298ad;
+    line-height: 1.6;
+}
+
+/* Info section */
+
+.info {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.info h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.info p {
+    color: #969cb3;
+    line-height: 1.8;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 35px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #666c82;
+    font-size: 14px;
+}
+
+/* Animations */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeUp .7s ease backwards;
+}
+
+.card:nth-child(2) { animation-delay: .1s; }
+.card:nth-child(3) { animation-delay: .2s; }
+.card:nth-child(4) { animation-delay: .3s; }
+.card:nth-child(5) { animation-delay: .4s; }
+.card:nth-child(6) { animation-delay: .5s; }
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    nav {
+        padding: 18px 5%;
+    }
+
+    nav div:last-child {
+        display: none;
+    }
+
+    .hero {
+        min-height: 65vh;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to EduClassroom!</h1>
-    <p>A place for students to learn and review common school subjects.</p>
+
+<div class="background"></div>
+
+<nav>
+    <div class="logo">Edu<span>Classroom</span></div>
+
+    <div>
+        <a href="#subjects">Subjects</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">📚 Learn • Practice • Improve</div>
+
+        <h1>
+            Welcome to
+            <span class="gradient">EduClassroom</span>
+        </h1>
+
+        <p>
+            A simple educational space designed to help students
+            learn, review, and explore common school subjects.
+        </p>
+
+        <div class="search-container">
+            <input
+                class="search"
+                id="search"
+                type="text"
+                placeholder="Search subjects..."
+            >
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="subjects">
+
+    <div class="section-title">
+        <h2>Explore Subjects</h2>
+        <p>Choose a subject to begin learning.</p>
+    </div>
+
+    <div class="subject-grid" id="subjectGrid">
+
+        <div class="card" data-name="mathematics math algebra geometry">
+            <div class="icon">📐</div>
+            <h3>Mathematics</h3>
+            <p>
+                Practice numbers, equations, geometry,
+                algebra, and problem solving.
+            </p>
+        </div>
+
+        <div class="card" data-name="science biology chemistry physics">
+            <div class="icon">🔬</div>
+            <h3>Science</h3>
+            <p>
+                Explore biology, chemistry, physics,
+                experiments, and the world around us.
+            </p>
+        </div>
+
+        <div class="card" data-name="english language writing literature">
+            <div class="icon">📖</div>
+            <h3>English</h3>
+            <p>
+                Improve reading, writing, grammar,
+                vocabulary, and comprehension.
+            </p>
+        </div>
+
+        <div class="card" data-name="history geography social studies">
+            <div class="icon">🌎</div>
+            <h3>History</h3>
+            <p>
+                Learn about important events, people,
+                civilizations, and places.
+            </p>
+        </div>
+
+        <div class="card" data-name="computer technology coding">
+            <div class="icon">💻</div>
+            <h3>Computer Science</h3>
+            <p>
+                Learn about technology, computers,
+                programming, and digital concepts.
+            </p>
+        </div>
+
+        <div class="card" data-name="study skills learning">
+            <div class="icon">🧠</div>
+            <h3>Study Skills</h3>
+            <p>
+                Discover useful techniques for studying,
+                organizing, and remembering information.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="info" id="about">
+
+    <h2>Learning Made Simple</h2>
+
+    <p>
+        EduClassroom is designed to make studying easier by
+        bringing useful educational topics into one simple,
+        easy-to-navigate website. Explore different subjects,
+        review important concepts, and keep learning at your
+        own pace.
+    </p>
+
+</section>
+
+<footer>
+    © 2026 EduClassroom • Educational Resource
+</footer>
+
+<script>
+
+/* Subject search */
+
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("input", () => {
+
+    const query = search.value.toLowerCase();
+
+    cards.forEach(card => {
+
+        const name = card.dataset.name;
+
+        if (name.includes(query)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+</script>
+
 </body>
 </html>
+```
