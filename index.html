@@ -12,6 +12,11 @@
 </svg>">
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -39,7 +44,10 @@ body {
     transition: background .4s, color .4s;
 }
 
-/* SPACE */
+
+/* =========================
+   STAR BACKGROUND
+========================= */
 
 #space {
     position: fixed;
@@ -51,13 +59,21 @@ body {
 
 .galaxy {
     position: fixed;
+
     width: 700px;
     height: 700px;
+
     left: 50%;
     top: 38%;
-    transform: translate(-50%, -50%) rotate(-20deg);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-20deg);
+
     border-radius: 50%;
+
     z-index: -4;
+
     pointer-events: none;
 
     background:
@@ -71,54 +87,92 @@ body {
         );
 
     filter: blur(8px);
+
     opacity: .75;
 
-    animation: galaxySpin 45s linear infinite;
+    animation:
+        galaxySpin 45s linear infinite;
 }
 
 .galaxy::before,
 .galaxy::after {
     content: "";
+
     position: absolute;
+
     inset: 5%;
+
     border-radius: 50%;
-    border: 35px solid rgba(130,70,255,.08);
-    transform: rotate(30deg) scaleX(1.8);
+
+    border:
+        35px solid
+        rgba(130,70,255,.08);
+
+    transform:
+        rotate(30deg)
+        scaleX(1.8);
+
     filter: blur(18px);
 }
 
 .galaxy::after {
-    transform: rotate(-30deg) scaleX(1.5);
-    border-color: rgba(50,150,255,.08);
+    transform:
+        rotate(-30deg)
+        scaleX(1.5);
+
+    border-color:
+        rgba(50,150,255,.08);
 }
 
 @keyframes galaxySpin {
+
     from {
-        transform: translate(-50%, -50%) rotate(-20deg);
+        transform:
+            translate(-50%, -50%)
+            rotate(-20deg);
     }
 
     to {
-        transform: translate(-50%, -50%) rotate(340deg);
+        transform:
+            translate(-50%, -50%)
+            rotate(340deg);
     }
+
 }
 
-/* NAVIGATION */
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    padding: 22px 6%;
+
+    padding:
+        22px 6%;
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    background: rgba(2,3,10,.55);
-    backdrop-filter: blur(15px);
+    justify-content:
+        space-between;
 
-    border-bottom: 1px solid rgba(150,100,255,.12);
+    align-items:
+        center;
+
+    background:
+        rgba(2,3,10,.55);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(150,100,255,.12);
 
     z-index: 100;
 }
@@ -134,13 +188,17 @@ nav {
 
 .nav-links {
     display: flex;
+
     align-items: center;
+
     gap: 28px;
 }
 
 .nav-links a {
     color: #bfc2d8;
+
     text-decoration: none;
+
     transition: .3s;
 }
 
@@ -148,11 +206,20 @@ nav {
     color: var(--accent);
 }
 
-/* SETTINGS BUTTON */
+
+/* =========================
+   SETTINGS BUTTON
+========================= */
 
 .settings-button {
-    border: 1px solid rgba(150,100,255,.3);
-    background: rgba(80,50,150,.2);
+
+    border:
+        1px solid
+        rgba(150,100,255,.3);
+
+    background:
+        rgba(80,50,150,.2);
+
     color: white;
 
     width: 42px;
@@ -168,20 +235,34 @@ nav {
 }
 
 .settings-button:hover {
-    transform: rotate(45deg) scale(1.08);
-    background: rgba(120,70,220,.35);
+
+    transform:
+        rotate(45deg)
+        scale(1.08);
+
+    background:
+        rgba(120,70,220,.35);
 }
 
-/* SETTINGS */
+
+/* =========================
+   SETTINGS
+========================= */
 
 .settings-overlay {
+
     position: fixed;
+
     inset: 0;
 
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(4px);
+    background:
+        rgba(0,0,0,.55);
+
+    backdrop-filter:
+        blur(4px);
 
     opacity: 0;
+
     visibility: hidden;
 
     transition: .3s;
@@ -190,17 +271,22 @@ nav {
 }
 
 .settings-overlay.open {
+
     opacity: 1;
+
     visibility: visible;
 }
 
 .settings-panel {
+
     position: fixed;
 
     top: 0;
     right: 0;
 
-    width: min(390px, 90vw);
+    width:
+        min(390px, 90vw);
+
     height: 100vh;
 
     padding: 30px;
@@ -212,13 +298,20 @@ nav {
             rgba(5,6,18,.98)
         );
 
-    border-left: 1px solid rgba(150,100,255,.25);
+    border-left:
+        1px solid
+        rgba(150,100,255,.25);
 
-    box-shadow: -20px 0 60px rgba(0,0,0,.45);
+    box-shadow:
+        -20px 0 60px
+        rgba(0,0,0,.45);
 
-    transform: translateX(100%);
+    transform:
+        translateX(100%);
 
-    transition: transform .4s cubic-bezier(.2,.8,.2,1);
+    transition:
+        transform .4s
+        cubic-bezier(.2,.8,.2,1);
 
     overflow-y: auto;
 
@@ -226,13 +319,19 @@ nav {
 }
 
 .settings-panel.open {
-    transform: translateX(0);
+    transform:
+        translateX(0);
 }
 
 .settings-header {
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
 
     margin-bottom: 30px;
 }
@@ -242,10 +341,15 @@ nav {
 }
 
 .close-settings {
+
     background: none;
+
     border: none;
+
     color: #aaa;
+
     font-size: 28px;
+
     cursor: pointer;
 }
 
@@ -254,23 +358,32 @@ nav {
 }
 
 .setting label {
+
     display: block;
+
     margin-bottom: 10px;
+
     color: #bfc2d8;
+
     font-size: 14px;
 }
 
 .setting input,
 .setting select {
+
     width: 100%;
 
-    padding: 13px 15px;
+    padding:
+        13px 15px;
 
     border-radius: 10px;
 
-    border: 1px solid rgba(150,100,255,.25);
+    border:
+        1px solid
+        rgba(150,100,255,.25);
 
-    background: rgba(0,0,0,.35);
+    background:
+        rgba(0,0,0,.35);
 
     color: white;
 
@@ -281,19 +394,25 @@ nav {
 
 .setting input:focus,
 .setting select:focus {
-    border-color: var(--accent);
+
+    border-color:
+        var(--accent);
 }
 
 .setting select option {
-    background: #11111d;
+
+    background:
+        #11111d;
 }
 
 .save-button {
+
     width: 100%;
 
     padding: 14px;
 
     border: none;
+
     border-radius: 12px;
 
     background:
@@ -313,13 +432,17 @@ nav {
 }
 
 .save-button:hover {
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 8px 25px rgba(130,80,255,.4);
+        0 8px 25px
+        rgba(130,80,255,.4);
 }
 
 .reset-button {
+
     width: 100%;
 
     padding: 12px;
@@ -328,9 +451,12 @@ nav {
 
     border-radius: 12px;
 
-    border: 1px solid rgba(255,255,255,.15);
+    border:
+        1px solid
+        rgba(255,255,255,.15);
 
-    background: rgba(255,255,255,.05);
+    background:
+        rgba(255,255,255,.05);
 
     color: #aaa;
 
@@ -338,6 +464,7 @@ nav {
 }
 
 .small-note {
+
     margin-top: 10px;
 
     color: #676c83;
@@ -347,55 +474,82 @@ nav {
     line-height: 1.5;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
+
     min-height: 100vh;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
 
     text-align: center;
 
-    padding: 120px 20px 60px;
+    padding:
+        120px 20px 60px;
 }
 
 .hero-content {
+
     max-width: 900px;
 
-    animation: heroAppear 1.2s ease;
+    animation:
+        heroAppear 1.2s ease;
 }
 
 @keyframes heroAppear {
+
     from {
+
         opacity: 0;
-        transform: translateY(40px);
+
+        transform:
+            translateY(40px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 .badge {
+
     display: inline-block;
 
-    padding: 9px 18px;
+    padding:
+        9px 18px;
 
-    border: 1px solid rgba(150,100,255,.4);
+    border:
+        1px solid
+        rgba(150,100,255,.4);
+
     border-radius: 50px;
 
-    background: rgba(100,50,200,.1);
+    background:
+        rgba(100,50,200,.1);
 
-    color: #c8b1ff;
+    color:
+        #c8b1ff;
 
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 9vw, 105px);
+
+    font-size:
+        clamp(55px, 9vw, 105px);
 
     line-height: .95;
 
@@ -405,6 +559,7 @@ nav {
 }
 
 .gradient {
+
     background:
         linear-gradient(
             90deg,
@@ -414,18 +569,24 @@ nav {
             var(--accent2)
         );
 
-    -webkit-background-clip: text;
-    background-clip: text;
+    -webkit-background-clip:
+        text;
 
-    color: transparent;
+    background-clip:
+        text;
+
+    color:
+        transparent;
 }
 
 .hero p {
+
     max-width: 650px;
 
     margin: auto;
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
     font-size: 18px;
 
@@ -434,11 +595,13 @@ nav {
 
 .start-button,
 .play-button {
+
     display: inline-block;
 
     margin-top: 35px;
 
-    padding: 15px 28px;
+    padding:
+        15px 28px;
 
     color: white;
 
@@ -454,37 +617,52 @@ nav {
         );
 
     box-shadow:
-        0 0 20px rgba(120,70,255,.4);
+        0 0 20px
+        rgba(120,70,255,.4);
 
     transition: .3s;
 }
 
 .start-button:hover,
 .play-button:hover {
-    transform: translateY(-4px) scale(1.04);
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
 
     box-shadow:
-        0 0 35px rgba(140,80,255,.7);
+        0 0 35px
+        rgba(140,80,255,.7);
 }
 
-/* SEARCH */
+
+/* =========================
+   SEARCH
+========================= */
 
 .search-container {
+
     max-width: 600px;
 
-    margin: 45px auto 0;
+    margin:
+        45px auto 0;
 }
 
 .search {
+
     width: 100%;
 
-    padding: 18px 23px;
+    padding:
+        18px 23px;
 
     border-radius: 50px;
 
-    border: 1px solid rgba(150,100,255,.35);
+    border:
+        1px solid
+        rgba(150,100,255,.35);
 
-    background: rgba(5,5,20,.65);
+    background:
+        rgba(5,5,20,.65);
 
     color: white;
 
@@ -496,73 +674,118 @@ nav {
 }
 
 .search::placeholder {
-    color: #777b93;
+
+    color:
+        #777b93;
 }
 
 .search:focus {
-    border-color: var(--accent);
+
+    border-color:
+        var(--accent);
 
     box-shadow:
-        0 0 30px rgba(130,70,255,.25);
+        0 0 30px
+        rgba(130,70,255,.25);
 }
 
-/* LIBRARY */
+
+/* =========================
+   LIBRARY
+========================= */
 
 .section {
-    padding: 100px 7%;
+
+    padding:
+        100px 7%;
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 50px;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        50px;
 }
 
 .section-title h2 {
+
     font-size: 42px;
-    margin-bottom: 12px;
+
+    margin-bottom:
+        12px;
 }
 
 .section-title p {
-    color: #81869e;
+
+    color:
+        #81869e;
 }
+
+
+/* =========================
+   GAME GRID
+========================= */
 
 .game-grid {
-    max-width: 1150px;
 
-    margin: auto;
+    max-width:
+        1000px;
 
-    display: grid;
+    margin:
+        auto;
+
+    display:
+        grid;
 
     grid-template-columns:
-    repeat(auto-fit, minmax(190px, 210px));
+        repeat(
+            auto-fit,
+            minmax(220px, 260px)
+        );
 
-    justify-content: center;
+    justify-content:
+        center;
+
+    gap:
+        22px;
 }
 
-/* SQUARE TILES */
+
+/* =========================
+   GAME CARD
+========================= */
 
 .card {
-    position: relative;
 
-    width: 100%;
+    width:
+        100%;
 
-    aspect-ratio: 1 / 1;
+    padding:
+        18px;
 
-    padding: 22px;
+    border-radius:
+        18px;
 
-    border-radius: 22px;
+    background:
+        var(--card);
 
-    background: var(--card);
+    border:
+        1px solid
+        rgba(140,100,255,.2);
 
-    border: 1px solid rgba(140,100,255,.2);
+    backdrop-filter:
+        blur(12px);
 
-    backdrop-filter: blur(12px);
+    overflow:
+        hidden;
 
-    overflow: hidden;
+    display:
+        flex;
 
-    display: flex;
-
-    flex-direction: column;
+    flex-direction:
+        column;
 
     transition:
         transform .35s,
@@ -571,187 +794,329 @@ nav {
 }
 
 .card:hover {
-    transform: translateY(-10px);
 
-    border-color: rgba(160,110,255,.65);
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(160,110,255,.65);
 
     box-shadow:
-        0 15px 50px rgba(80,40,180,.25);
+        0 12px 35px
+        rgba(80,40,180,.25);
 }
 
-/* IMAGE AREA */
+
+/* =========================
+   GAME IMAGE
+========================= */
 
 .icon {
-    width: 100%;
 
-    aspect-ratio: 16 / 9;
+    width:
+        100%;
 
-    margin-bottom: 18px;
+    height:
+        125px;
 
-    display: flex;
+    margin-bottom:
+        15px;
 
-    align-items: center;
+    display:
+        flex;
 
-    justify-content: center;
+    align-items:
+        center;
 
-    overflow: hidden;
+    justify-content:
+        center;
 
-    border-radius: 14px;
+    overflow:
+        hidden;
 
-    background: rgba(0,0,0,.25);
+    border-radius:
+        12px;
 
-    flex-shrink: 0;
+    background:
+        rgba(0,0,0,.2);
+
+    flex-shrink:
+        0;
 }
 
 .icon img {
-    width: 100%;
-    height: 100%;
 
-    object-fit: cover;
+    max-width:
+        100%;
 
-    display: block;
+    max-height:
+        100%;
 
-    border-radius: 14px;
+    width:
+        auto;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    display:
+        block;
+
+    border-radius:
+        10px;
 }
 
-/* CARD TEXT */
+
+/* =========================
+   CARD TEXT
+========================= */
 
 .card h3 {
-    font-size: 24px;
 
-    margin-bottom: 10px;
+    font-size:
+        21px;
+
+    margin-bottom:
+        7px;
 }
 
 .card p {
-    color: #8e93aa;
 
-    line-height: 1.5;
+    color:
+        #8e93aa;
 
-    margin-bottom: 10px;
+    line-height:
+        1.45;
 
-    font-size: 14px;
+    margin-bottom:
+        5px;
+
+    font-size:
+        13px;
 }
 
-/* PLAY BUTTON */
+
+/* =========================
+   PLAY BUTTON
+========================= */
 
 .card .play-button {
-    margin-top: auto;
 
-    align-self: flex-start;
+    margin-top:
+        12px;
 
-    padding: 11px 20px;
+    align-self:
+        flex-start;
 
-    font-size: 14px;
+    padding:
+        9px 17px;
+
+    font-size:
+        13px;
 }
 
-/* NO RESULTS */
+
+/* =========================
+   NO RESULTS
+========================= */
 
 #noResults {
-    display: none;
 
-    text-align: center;
+    display:
+        none;
 
-    color: #777b93;
+    text-align:
+        center;
 
-    font-size: 18px;
+    color:
+        #777b93;
 
-    padding: 50px;
+    font-size:
+        18px;
+
+    padding:
+        50px;
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
 
 .info {
-    max-width: 850px;
 
-    margin: auto;
+    max-width:
+        850px;
 
-    padding: 100px 20px;
+    margin:
+        auto;
 
-    text-align: center;
+    padding:
+        100px 20px;
+
+    text-align:
+        center;
 }
 
 .info h2 {
-    font-size: 40px;
 
-    margin-bottom: 20px;
+    font-size:
+        40px;
+
+    margin-bottom:
+        20px;
 }
 
 .info p {
-    color: #969bb1;
 
-    line-height: 1.8;
+    color:
+        #969bb1;
 
-    font-size: 17px;
+    line-height:
+        1.8;
+
+    font-size:
+        17px;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    padding: 50px;
 
-    text-align: center;
+    padding:
+        50px;
+
+    text-align:
+        center;
 
     border-top:
-        1px solid rgba(150,100,255,.12);
+        1px solid
+        rgba(150,100,255,.12);
 
-    color: #62677e;
+    color:
+        #62677e;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px) {
 
     .nav-links a {
-        display: none;
+        display:
+            none;
     }
 
     .hero h1 {
-        font-size: 55px;
 
-        letter-spacing: -2px;
+        font-size:
+            55px;
+
+        letter-spacing:
+            -2px;
     }
 
     .galaxy {
-        width: 500px;
-        height: 500px;
+
+        width:
+            500px;
+
+        height:
+            500px;
     }
 
     .section {
-        padding: 70px 5%;
+
+        padding:
+            70px 5%;
     }
 
     .game-grid {
-    grid-template-columns:
-    repeat(2, 190px);
 
-    justify-content: center;
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(150px, 1fr)
+            );
+
+        gap:
+            15px;
+    }
+
+    .card {
+
+        padding:
+            14px;
+    }
+
+    .icon {
+
+        height:
+            100px;
+    }
+
+    .card h3 {
+
+        font-size:
+            18px;
+    }
+
+    .card p {
+
+        font-size:
+            12px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
 
 <canvas id="space"></canvas>
 
 <div class="galaxy"></div>
 
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
     <div class="logo">
+
         Edu<span>Classroom</span>
+
     </div>
+
 
     <div class="nav-links">
 
-        <a href="#">Home</a>
+        <a href="#">
+            Home
+        </a>
 
-        <a href="#games">Library</a>
+        <a href="#games">
+            Library
+        </a>
 
-        <a href="#about">About</a>
+        <a href="#about">
+            About
+        </a>
 
         <button
             class="settings-button"
@@ -766,12 +1131,19 @@ footer {
 </nav>
 
 
-<!-- SETTINGS -->
+<!-- =========================
+     SETTINGS OVERLAY
+========================= -->
 
 <div
     class="settings-overlay"
     id="settingsOverlay"
 ></div>
+
+
+<!-- =========================
+     SETTINGS PANEL
+========================= -->
 
 <div
     class="settings-panel"
@@ -780,7 +1152,9 @@ footer {
 
     <div class="settings-header">
 
-        <h2>⚙️ Settings</h2>
+        <h2>
+            ⚙️ Settings
+        </h2>
 
         <button
             class="close-settings"
@@ -790,6 +1164,7 @@ footer {
         </button>
 
     </div>
+
 
     <div class="setting">
 
@@ -823,6 +1198,7 @@ footer {
 
     </div>
 
+
     <div class="setting">
 
         <label for="titleInput">
@@ -837,10 +1213,14 @@ footer {
         >
 
         <div class="small-note">
-            Change the name shown on the browser tab.
+
+            Change the name shown on
+            the browser tab.
+
         </div>
 
     </div>
+
 
     <div class="setting">
 
@@ -855,10 +1235,14 @@ footer {
         >
 
         <div class="small-note">
-            Paste a direct image URL for your icon.
+
+            Paste a direct image URL
+            for your icon.
+
         </div>
 
     </div>
+
 
     <button
         class="save-button"
@@ -866,6 +1250,7 @@ footer {
     >
         Save Settings
     </button>
+
 
     <button
         class="reset-button"
@@ -877,26 +1262,40 @@ footer {
 </div>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
         <div class="badge">
+
             ✦ EXPLORE • PLAY • DISCOVER
+
         </div>
 
+
         <h1>
-            Edu<span class="gradient">Classroom</span>
+
+            Edu<span class="gradient">
+                Classroom
+            </span>
+
         </h1>
 
+
         <p>
-            Welcome to your universe of interactive
-            experiences. Explore the collection,
-            find something fun, and discover
-            something new.
+
+            Welcome to your universe of
+            interactive experiences.
+            Explore the collection,
+            find something fun,
+            and discover something new.
+
         </p>
+
 
         <a
             href="#games"
@@ -904,6 +1303,7 @@ footer {
         >
             Browse Library →
         </a>
+
 
         <div class="search-container">
 
@@ -921,7 +1321,9 @@ footer {
 </section>
 
 
-<!-- LIBRARY -->
+<!-- =========================
+     GAME LIBRARY
+========================= -->
 
 <section
     class="section"
@@ -946,7 +1348,10 @@ footer {
         id="gameGrid"
     >
 
-        <!-- HANGMAN -->
+
+        <!-- =====================
+             HANGMAN
+        ====================== -->
 
         <div
             class="card"
@@ -962,14 +1367,20 @@ footer {
 
             </div>
 
+
             <h3>
                 Hangman
             </h3>
 
+
             <p>
-                Guess the hidden word before
-                you run out of chances.
+
+                Guess the hidden word
+                before you run out
+                of chances.
+
             </p>
+
 
             <a
                 class="play-button"
@@ -981,7 +1392,9 @@ footer {
         </div>
 
 
-        <!-- ROOFTOP SNIPERS -->
+        <!-- =====================
+             ROOFTOP SNIPERS
+        ====================== -->
 
         <div
             class="card"
@@ -997,14 +1410,20 @@ footer {
 
             </div>
 
+
             <h3>
                 Rooftop Snipers
             </h3>
 
+
             <p>
-                Battle your opponent on the
-                rooftop and knock them off.
+
+                Battle your opponent
+                on the rooftop and
+                knock them off.
+
             </p>
+
 
             <a
                 class="play-button"
@@ -1015,17 +1434,23 @@ footer {
 
         </div>
 
+
     </div>
 
 
     <div id="noResults">
-        Nothing found. Try another search.
+
+        Nothing found.
+        Try another search.
+
     </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section
     class="info"
@@ -1037,21 +1462,33 @@ footer {
     </h2>
 
     <p>
-        Browse the library, search for something
-        specific, and discover something new.
+
+        Browse the library,
+        search for something specific,
+        and discover something new.
+
     </p>
 
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
     © 2026 EduClassroom
+
 </footer>
 
 
 <script>
 
-/* STARFIELD */
+
+/* =========================
+   STARFIELD
+========================= */
 
 const canvas =
     document.getElementById("space");
@@ -1062,8 +1499,13 @@ const ctx =
 let stars = [];
 
 let mouse = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
+
+    x:
+        window.innerWidth / 2,
+
+    y:
+        window.innerHeight / 2
+
 };
 
 
@@ -1076,9 +1518,12 @@ function resizeCanvas() {
         window.innerHeight;
 
     createStars();
+
 }
 
+
 resizeCanvas();
+
 
 window.addEventListener(
     "resize",
@@ -1114,7 +1559,12 @@ function createStars() {
             )
         );
 
-    for(let i = 0; i < amount; i++) {
+
+    for(
+        let i = 0;
+        i < amount;
+        i++
+    ) {
 
         stars.push({
 
@@ -1127,13 +1577,16 @@ function createStars() {
                 canvas.height,
 
             size:
-                Math.random() * 1.8 + .3,
+                Math.random() *
+                1.8 + .3,
 
             speed:
-                Math.random() * .25 + .05,
+                Math.random() *
+                .25 + .05,
 
             brightness:
-                Math.random() * .7 + .3,
+                Math.random() *
+                .7 + .3,
 
             twinkle:
                 Math.random() *
@@ -1155,6 +1608,7 @@ function animateStars(time) {
         canvas.height
     );
 
+
     for(const star of stars) {
 
         const dx =
@@ -1169,7 +1623,10 @@ function animateStars(time) {
                 dy * dy
             );
 
-        const interactionRadius = 130;
+
+        const interactionRadius =
+            130;
+
 
         if(
             distance <
@@ -1177,25 +1634,37 @@ function animateStars(time) {
         ) {
 
             const force =
-                (interactionRadius - distance)
-                / interactionRadius;
+                (
+                    interactionRadius -
+                    distance
+                ) /
+                interactionRadius;
+
 
             const angle =
-                Math.atan2(dy, dx);
+                Math.atan2(
+                    dy,
+                    dx
+                );
+
 
             star.x +=
-                Math.cos(angle)
-                * force
-                * 4;
+                Math.cos(angle) *
+                force *
+                4;
+
 
             star.y +=
-                Math.sin(angle)
-                * force
-                * 4;
+                Math.sin(angle) *
+                force *
+                4;
 
         }
 
-        star.y += star.speed;
+
+        star.y +=
+            star.speed;
+
 
         if(
             star.y >
@@ -1210,15 +1679,27 @@ function animateStars(time) {
 
         }
 
-        if(star.x < -10)
+
+        if(
+            star.x <
+            -10
+        ) {
+
             star.x =
                 canvas.width + 10;
+
+        }
+
 
         if(
             star.x >
             canvas.width + 10
-        )
+        ) {
+
             star.x = -10;
+
+        }
+
 
         const alpha =
             star.brightness +
@@ -1227,7 +1708,9 @@ function animateStars(time) {
                 star.twinkle
             ) * .2;
 
+
         ctx.beginPath();
+
 
         ctx.arc(
             star.x,
@@ -1237,33 +1720,48 @@ function animateStars(time) {
             Math.PI * 2
         );
 
+
         ctx.fillStyle =
             `rgba(255,255,255,${Math.max(.1,alpha)})`;
+
 
         ctx.fill();
 
     }
 
+
     requestAnimationFrame(
         animateStars
     );
+
 }
+
 
 requestAnimationFrame(
     animateStars
 );
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 const search =
-    document.getElementById("search");
+    document.getElementById(
+        "search"
+    );
+
 
 const cards =
-    document.querySelectorAll(".card");
+    document.querySelectorAll(
+        ".card"
+    );
+
 
 const noResults =
-    document.getElementById("noResults");
+    document.getElementById(
+        "noResults"
+    );
 
 
 search.addEventListener(
@@ -1272,35 +1770,43 @@ search.addEventListener(
 
         const query =
             search.value
-            .toLowerCase()
-            .trim();
+                .toLowerCase()
+                .trim();
+
 
         let visibleGames = 0;
 
-        cards.forEach(card => {
 
-            const keywords =
-                card.dataset.name
-                .toLowerCase();
+        cards.forEach(
+            card => {
 
-            if(
-                keywords.includes(query) ||
-                query === ""
-            ) {
+                const keywords =
+                    card.dataset.name
+                        .toLowerCase();
 
-                card.style.display =
-                    "";
 
-                visibleGames++;
+                if(
+                    keywords.includes(query) ||
+                    query === ""
+                ) {
 
-            } else {
+                    card.style.display =
+                        "";
 
-                card.style.display =
-                    "none";
+                    visibleGames++;
+
+                }
+
+                else {
+
+                    card.style.display =
+                        "none";
+
+                }
 
             }
+        );
 
-        });
 
         noResults.style.display =
             visibleGames === 0
@@ -1311,22 +1817,27 @@ search.addEventListener(
 );
 
 
-/* SETTINGS */
+/* =========================
+   SETTINGS
+========================= */
 
 const settingsButton =
     document.getElementById(
         "settingsButton"
     );
 
+
 const settingsPanel =
     document.getElementById(
         "settingsPanel"
     );
 
+
 const settingsOverlay =
     document.getElementById(
         "settingsOverlay"
     );
+
 
 const closeSettings =
     document.getElementById(
@@ -1336,18 +1847,26 @@ const closeSettings =
 
 function openSettings() {
 
-    settingsPanel.classList.add("open");
+    settingsPanel.classList.add(
+        "open"
+    );
 
-    settingsOverlay.classList.add("open");
+    settingsOverlay.classList.add(
+        "open"
+    );
 
 }
 
 
 function closeSettingsPanel() {
 
-    settingsPanel.classList.remove("open");
+    settingsPanel.classList.remove(
+        "open"
+    );
 
-    settingsOverlay.classList.remove("open");
+    settingsOverlay.classList.remove(
+        "open"
+    );
 
 }
 
@@ -1357,10 +1876,12 @@ settingsButton.addEventListener(
     openSettings
 );
 
+
 closeSettings.addEventListener(
     "click",
     closeSettingsPanel
 );
+
 
 settingsOverlay.addEventListener(
     "click",
@@ -1368,7 +1889,9 @@ settingsOverlay.addEventListener(
 );
 
 
-/* THEMES */
+/* =========================
+   THEMES
+========================= */
 
 const themeSelect =
     document.getElementById(
@@ -1379,38 +1902,87 @@ const themeSelect =
 const themes = {
 
     galaxy: {
-        background: "#02030a",
-        accent: "#8b5cf6",
-        accent2: "#a855f7",
-        card: "rgba(20,15,45,.75)"
+
+        background:
+            "#02030a",
+
+        accent:
+            "#8b5cf6",
+
+        accent2:
+            "#a855f7",
+
+        card:
+            "rgba(20,15,45,.75)"
+
     },
+
 
     blue: {
-        background: "#020812",
-        accent: "#3b82f6",
-        accent2: "#06b6d4",
-        card: "rgba(10,25,50,.75)"
+
+        background:
+            "#020812",
+
+        accent:
+            "#3b82f6",
+
+        accent2:
+            "#06b6d4",
+
+        card:
+            "rgba(10,25,50,.75)"
+
     },
+
 
     red: {
-        background: "#0d0204",
-        accent: "#ef4444",
-        accent2: "#f97316",
-        card: "rgba(50,10,15,.75)"
+
+        background:
+            "#0d0204",
+
+        accent:
+            "#ef4444",
+
+        accent2:
+            "#f97316",
+
+        card:
+            "rgba(50,10,15,.75)"
+
     },
+
 
     green: {
-        background: "#020c08",
-        accent: "#10b981",
-        accent2: "#22c55e",
-        card: "rgba(5,35,25,.75)"
+
+        background:
+            "#020c08",
+
+        accent:
+            "#10b981",
+
+        accent2:
+            "#22c55e",
+
+        card:
+            "rgba(5,35,25,.75)"
+
     },
 
+
     pink: {
-        background: "#0c020b",
-        accent: "#ec4899",
-        accent2: "#d946ef",
-        card: "rgba(45,8,40,.75)"
+
+        background:
+            "#0c020b",
+
+        accent:
+            "#ec4899",
+
+        accent2:
+            "#d946ef",
+
+        card:
+            "rgba(45,8,40,.75)"
+
     }
 
 };
@@ -1422,29 +1994,29 @@ function applyTheme(themeName) {
         themes[themeName] ||
         themes.galaxy;
 
-    document.documentElement
-        .style
+
+    document.documentElement.style
         .setProperty(
             "--background",
             theme.background
         );
 
-    document.documentElement
-        .style
+
+    document.documentElement.style
         .setProperty(
             "--accent",
             theme.accent
         );
 
-    document.documentElement
-        .style
+
+    document.documentElement.style
         .setProperty(
             "--accent2",
             theme.accent2
         );
 
-    document.documentElement
-        .style
+
+    document.documentElement.style
         .setProperty(
             "--card",
             theme.card
@@ -1453,7 +2025,9 @@ function applyTheme(themeName) {
 }
 
 
-/* TAB TITLE */
+/* =========================
+   TAB TITLE
+========================= */
 
 const titleInput =
     document.getElementById(
@@ -1463,20 +2037,29 @@ const titleInput =
 
 function applyTitle(title) {
 
-    if(!title)
-        title = "EduClassroom";
+    if(!title) {
 
-    document.title = title;
+        title =
+            "EduClassroom";
+
+    }
+
+
+    document.title =
+        title;
 
 }
 
 
-/* FAVICON */
+/* =========================
+   FAVICON
+========================= */
 
 const iconInput =
     document.getElementById(
         "iconInput"
     );
+
 
 const favicon =
     document.getElementById(
@@ -1499,12 +2082,16 @@ function applyIcon(url) {
 
     }
 
-    favicon.href = url;
+
+    favicon.href =
+        url;
 
 }
 
 
-/* SAVE SETTINGS */
+/* =========================
+   SAVE SETTINGS
+========================= */
 
 document.getElementById(
     "saveSettings"
@@ -1525,22 +2112,27 @@ document.getElementById(
 
         };
 
+
         localStorage.setItem(
             "educlassroomSettings",
             JSON.stringify(settings)
         );
 
+
         applyTheme(
             settings.theme
         );
+
 
         applyTitle(
             settings.title
         );
 
+
         applyIcon(
             settings.icon
         );
+
 
         closeSettingsPanel();
 
@@ -1548,7 +2140,9 @@ document.getElementById(
 );
 
 
-/* RESET SETTINGS */
+/* =========================
+   RESET SETTINGS
+========================= */
 
 document.getElementById(
     "resetSettings"
@@ -1560,28 +2154,40 @@ document.getElementById(
             "educlassroomSettings"
         );
 
+
         themeSelect.value =
             "galaxy";
+
 
         titleInput.value =
             "EduClassroom";
 
+
         iconInput.value =
             "";
 
-        applyTheme("galaxy");
+
+        applyTheme(
+            "galaxy"
+        );
+
 
         applyTitle(
             "EduClassroom"
         );
 
-        applyIcon("");
+
+        applyIcon(
+            ""
+        );
 
     }
 );
 
 
-/* LOAD SETTINGS */
+/* =========================
+   LOAD SETTINGS
+========================= */
 
 function loadSettings() {
 
@@ -1590,65 +2196,91 @@ function loadSettings() {
             "educlassroomSettings"
         );
 
+
     if(!saved) {
 
-        applyTheme("galaxy");
+        applyTheme(
+            "galaxy"
+        );
+
 
         applyTitle(
             "EduClassroom"
         );
 
-        applyIcon("");
+
+        applyIcon(
+            ""
+        );
+
 
         return;
 
     }
 
+
     try {
 
         const settings =
-            JSON.parse(saved);
+            JSON.parse(
+                saved
+            );
+
 
         themeSelect.value =
             settings.theme ||
             "galaxy";
 
+
         titleInput.value =
             settings.title ||
             "EduClassroom";
 
+
         iconInput.value =
             settings.icon ||
             "";
+
 
         applyTheme(
             settings.theme ||
             "galaxy"
         );
 
+
         applyTitle(
             settings.title ||
             "EduClassroom"
         );
+
 
         applyIcon(
             settings.icon ||
             ""
         );
 
-    } catch(error) {
+    }
+
+    catch(error) {
 
         localStorage.removeItem(
             "educlassroomSettings"
         );
 
-        applyTheme("galaxy");
+
+        applyTheme(
+            "galaxy"
+        );
+
 
         applyTitle(
             "EduClassroom"
         );
 
-        applyIcon("");
+
+        applyIcon(
+            ""
+        );
 
     }
 
