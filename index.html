@@ -534,9 +534,9 @@ nav {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
+    repeat(auto-fit, minmax(190px, 210px));
 
-    gap: 22px;
+    justify-content: center;
 }
 
 /* SQUARE TILES */
@@ -721,8 +721,10 @@ footer {
     }
 
     .game-grid {
-        grid-template-columns:
-            repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns:
+    repeat(2, 190px);
+
+    justify-content: center;
     }
 }
 </style>
@@ -954,7 +956,7 @@ footer {
             <div class="icon">
 
                 <img
-                    src="pages/images/hangman.jpg"
+                    src="pages/images/hangman.png"
                     alt="Hangman"
                 >
 
