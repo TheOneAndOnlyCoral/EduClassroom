@@ -1,1 +1,49 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slope Game Clone</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+        }
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+            display: none;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="score">Score: 0</div>
+    <div id="gameOver">
+        <div>GAME OVER</div>
+        <button onclick="location.reload()">Restart</button>
+    </div>
+    
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>   
