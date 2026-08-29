@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>EduClassroom</title>
 
+<link id="favicon" rel="icon" href="data:image/svg+xml,
+<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+<text y=%22.9em%22 font-size=%2290%22>🌌</text>
+</svg>">
+
 <style>
+
+/* =========================
+   GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,15 +27,26 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background: #02030a;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+:root {
+    --accent: #8b5cf6;
+    --accent2: #a855f7;
+    --background: #02030a;
+    --card: rgba(20, 15, 45, .75);
+    --text: #ffffff;
+    --muted: #969bb1;
 }
 
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    transition: background .4s, color .4s;
+}
+
+
 /* =========================
-   SPACE BACKGROUND
+   STAR BACKGROUND
 ========================= */
 
 #space {
@@ -33,68 +55,91 @@ body {
     width: 100%;
     height: 100%;
     z-index: -5;
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(110, 45, 190, 0.25),
-            rgba(20, 10, 60, 0.15) 30%,
-            #02030a 70%
-        );
 }
-
-/* Extra galaxy glow */
 
 .galaxy {
     position: fixed;
+
     width: 700px;
     height: 700px;
+
     left: 50%;
     top: 38%;
-    transform: translate(-50%, -50%) rotate(-20deg);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-20deg);
+
     border-radius: 50%;
+
     z-index: -4;
+
     pointer-events: none;
 
     background:
         radial-gradient(
             ellipse,
-            rgba(255,255,255,0.95) 0%,
-            rgba(160,110,255,0.7) 4%,
-            rgba(110,60,220,0.35) 15%,
-            rgba(80,30,180,0.12) 35%,
+            rgba(255,255,255,.95) 0%,
+            rgba(160,110,255,.7) 4%,
+            rgba(110,60,220,.35) 15%,
+            rgba(80,30,180,.12) 35%,
             transparent 68%
         );
 
     filter: blur(8px);
+
     opacity: .75;
-    animation: galaxySpin 45s linear infinite;
+
+    animation:
+        galaxySpin 45s linear infinite;
 }
 
 .galaxy::before,
 .galaxy::after {
     content: "";
+
     position: absolute;
+
     inset: 5%;
+
     border-radius: 50%;
-    border: 35px solid rgba(130,70,255,.08);
-    transform: rotate(30deg) scaleX(1.8);
+
+    border:
+        35px solid
+        rgba(130,70,255,.08);
+
+    transform:
+        rotate(30deg)
+        scaleX(1.8);
+
     filter: blur(18px);
 }
 
 .galaxy::after {
-    transform: rotate(-30deg) scaleX(1.5);
-    border-color: rgba(50,150,255,.08);
+    transform:
+        rotate(-30deg)
+        scaleX(1.5);
+
+    border-color:
+        rgba(50,150,255,.08);
 }
 
 @keyframes galaxySpin {
+
     from {
-        transform: translate(-50%, -50%) rotate(-20deg);
+        transform:
+            translate(-50%, -50%)
+            rotate(-20deg);
     }
 
     to {
-        transform: translate(-50%, -50%) rotate(340deg);
+        transform:
+            translate(-50%, -50%)
+            rotate(340deg);
     }
+
 }
+
 
 /* =========================
    NAVIGATION
@@ -102,18 +147,32 @@ body {
 
 nav {
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    padding: 22px 6%;
+
+    padding:
+        22px 6%;
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    background: rgba(2,3,10,.55);
-    backdrop-filter: blur(15px);
+    justify-content:
+        space-between;
 
-    border-bottom: 1px solid rgba(150,100,255,.12);
+    align-items:
+        center;
+
+    background:
+        rgba(2,3,10,.55);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(150,100,255,.12);
 
     z-index: 100;
 }
@@ -124,160 +183,486 @@ nav {
 }
 
 .logo span {
-    color: #a76cff;
+    color: var(--accent);
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+
+    align-items: center;
+
+    gap: 28px;
 }
 
 .nav-links a {
     color: #bfc2d8;
+
     text-decoration: none;
+
     transition: .3s;
 }
 
 .nav-links a:hover {
-    color: #a76cff;
-    text-shadow: 0 0 15px #8b5cff;
+    color: var(--accent);
 }
+
+
+/* =========================
+   SETTINGS BUTTON
+========================= */
+
+.settings-button {
+
+    border:
+        1px solid
+        rgba(150,100,255,.3);
+
+    background:
+        rgba(80,50,150,.2);
+
+    color: white;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.settings-button:hover {
+
+    transform:
+        rotate(45deg)
+        scale(1.08);
+
+    background:
+        rgba(120,70,220,.35);
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.55);
+
+    backdrop-filter:
+        blur(4px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 199;
+}
+
+.settings-overlay.open {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+.settings-panel {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width:
+        min(390px, 90vw);
+
+    height: 100vh;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,15,40,.98),
+            rgba(5,6,18,.98)
+        );
+
+    border-left:
+        1px solid
+        rgba(150,100,255,.25);
+
+    box-shadow:
+        -20px 0 60px
+        rgba(0,0,0,.45);
+
+    transform:
+        translateX(100%);
+
+    transition:
+        transform .4s
+        cubic-bezier(.2,.8,.2,1);
+
+    overflow-y: auto;
+
+    z-index: 200;
+}
+
+.settings-panel.open {
+    transform:
+        translateX(0);
+}
+
+.settings-header {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom: 30px;
+}
+
+.settings-header h2 {
+    font-size: 26px;
+}
+
+.close-settings {
+
+    background: none;
+
+    border: none;
+
+    color: #aaa;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.setting {
+    margin-bottom: 28px;
+}
+
+.setting label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #bfc2d8;
+
+    font-size: 14px;
+}
+
+.setting input,
+.setting select {
+
+    width: 100%;
+
+    padding:
+        13px 15px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        rgba(150,100,255,.25);
+
+    background:
+        rgba(0,0,0,.35);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.setting input:focus,
+.setting select:focus {
+
+    border-color:
+        var(--accent);
+}
+
+.setting select option {
+
+    background:
+        #11111d;
+}
+
+.save-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--accent2)
+        );
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.save-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(130,80,255,.4);
+}
+
+.reset-button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: #aaa;
+
+    cursor: pointer;
+}
+
+.small-note {
+
+    margin-top: 10px;
+
+    color: #676c83;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
 
 /* =========================
    HERO
 ========================= */
 
 .hero {
+
     min-height: 100vh;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
     text-align: center;
-    padding: 120px 20px 60px;
-    position: relative;
+
+    padding:
+        120px 20px 60px;
 }
 
 .hero-content {
+
     max-width: 900px;
-    animation: heroAppear 1.2s ease;
+
+    animation:
+        heroAppear 1.2s ease;
 }
 
 @keyframes heroAppear {
+
     from {
+
         opacity: 0;
-        transform: translateY(40px);
+
+        transform:
+            translateY(40px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 .badge {
-    display: inline-block;
-    padding: 9px 18px;
 
-    border: 1px solid rgba(150,100,255,.4);
+    display: inline-block;
+
+    padding:
+        9px 18px;
+
+    border:
+        1px solid
+        rgba(150,100,255,.4);
+
     border-radius: 50px;
 
-    background: rgba(100,50,200,.1);
+    background:
+        rgba(100,50,200,.1);
 
-    color: #c8b1ff;
-
-    box-shadow:
-        0 0 25px rgba(120,70,255,.15);
+    color:
+        #c8b1ff;
 
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 9vw, 105px);
+
+    font-size:
+        clamp(55px, 9vw, 105px);
+
     line-height: .95;
+
     margin-bottom: 25px;
+
     letter-spacing: -4px;
 }
 
 .gradient {
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #b783ff,
-        #6ea8ff,
-        #d38cff
-    );
 
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--accent),
+            #6ea8ff,
+            var(--accent2)
+        );
 
-    text-shadow: 0 0 40px rgba(130,80,255,.2);
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
 }
 
 .hero p {
+
     max-width: 650px;
+
     margin: auto;
 
-    color: #a4a8c0;
+    color:
+        var(--muted);
 
     font-size: 18px;
+
     line-height: 1.7;
 }
 
-/* =========================
-   BUTTON
-========================= */
+.start-button,
+.play-button {
 
-.start-button {
     display: inline-block;
 
     margin-top: 35px;
 
-    padding: 15px 28px;
+    padding:
+        15px 28px;
 
     color: white;
+
     text-decoration: none;
 
     border-radius: 50px;
 
-    background: linear-gradient(
-        90deg,
-        #714cff,
-        #a34cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--accent2)
+        );
 
     box-shadow:
-        0 0 20px rgba(120,70,255,.4);
+        0 0 20px
+        rgba(120,70,255,.4);
 
     transition: .3s;
 }
 
-.start-button:hover {
-    transform: translateY(-4px) scale(1.04);
+.start-button:hover,
+.play-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
 
     box-shadow:
-        0 0 35px rgba(140,80,255,.7);
+        0 0 35px
+        rgba(140,80,255,.7);
 }
+
 
 /* =========================
    SEARCH
 ========================= */
 
 .search-container {
+
     max-width: 600px;
-    margin: 45px auto 0;
+
+    margin:
+        45px auto 0;
 }
 
 .search {
+
     width: 100%;
 
-    padding: 18px 23px;
+    padding:
+        18px 23px;
 
     border-radius: 50px;
 
-    border: 1px solid rgba(150,100,255,.35);
+    border:
+        1px solid
+        rgba(150,100,255,.35);
 
-    background: rgba(5,5,20,.65);
+    background:
+        rgba(5,5,20,.65);
 
     color: white;
 
@@ -285,82 +670,122 @@ nav {
 
     font-size: 16px;
 
-    backdrop-filter: blur(10px);
-
     transition: .3s;
 }
 
 .search::placeholder {
-    color: #777b93;
+
+    color:
+        #777b93;
 }
 
 .search:focus {
-    border-color: #a76cff;
+
+    border-color:
+        var(--accent);
 
     box-shadow:
-        0 0 30px rgba(130,70,255,.25);
+        0 0 30px
+        rgba(130,70,255,.25);
 }
 
+
 /* =========================
-   SUBJECTS
+   LIBRARY
 ========================= */
 
 .section {
-    padding: 100px 7%;
-    position: relative;
+
+    padding:
+        100px 7%;
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 50px;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        50px;
 }
 
 .section-title h2 {
+
     font-size: 42px;
-    margin-bottom: 12px;
+
+    margin-bottom:
+        12px;
 }
 
 .section-title p {
-    color: #81869e;
+
+    color:
+        #81869e;
 }
 
-.subject-grid {
-    max-width: 1150px;
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-
-    gap: 22px;
-}
 
 /* =========================
-   CARDS
+   GAME GRID
+========================= */
+
+.game-grid {
+
+    max-width:
+        1000px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 260px)
+        );
+
+    justify-content:
+        center;
+
+    gap:
+        22px;
+}
+
+
+/* =========================
+   GAME CARD
 ========================= */
 
 .card {
-    position: relative;
 
-    padding: 30px;
+    width:
+        100%;
 
-    min-height: 250px;
+    padding:
+        18px;
 
-    border-radius: 22px;
+    border-radius:
+        18px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(30,20,60,.7),
-            rgba(5,8,20,.75)
-        );
+        var(--card);
 
-    border: 1px solid rgba(140,100,255,.2);
+    border:
+        1px solid
+        rgba(140,100,255,.2);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 
-    overflow: hidden;
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
 
     transition:
         transform .35s,
@@ -368,130 +793,215 @@ nav {
         box-shadow .35s;
 }
 
-.card::before {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    background: #7b4cff;
-
-    filter: blur(80px);
-
-    opacity: 0;
-
-    top: -80px;
-    right: -80px;
-
-    transition: .4s;
-}
-
 .card:hover {
-    transform:
-        translateY(-10px)
-        rotateX(2deg)
-        rotateY(-2deg);
 
-    border-color: rgba(160,110,255,.65);
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(160,110,255,.65);
 
     box-shadow:
-        0 15px 50px rgba(80,40,180,.25);
+        0 12px 35px
+        rgba(80,40,180,.25);
 }
 
-.card:hover::before {
-    opacity: .25;
-}
+
+/* =========================
+   GAME IMAGE
+========================= */
 
 .icon {
-    font-size: 42px;
 
-    margin-bottom: 20px;
+    width:
+        100%;
 
-    filter:
-        drop-shadow(0 0 12px rgba(150,100,255,.7));
+    height:
+        125px;
+
+    margin-bottom:
+        15px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    flex-shrink:
+        0;
 }
 
+.icon img {
+
+    max-width:
+        100%;
+
+    max-height:
+        100%;
+
+    width:
+        auto;
+
+    height:
+        auto;
+
+    object-fit:
+        contain;
+
+    display:
+        block;
+
+    border-radius:
+        10px;
+}
+
+
+/* =========================
+   CARD TEXT
+========================= */
+
 .card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+
+    font-size:
+        21px;
+
+    margin-bottom:
+        7px;
 }
 
 .card p {
-    color: #8e93aa;
-    line-height: 1.6;
+
+    color:
+        #8e93aa;
+
+    line-height:
+        1.45;
+
+    margin-bottom:
+        5px;
+
+    font-size:
+        13px;
 }
+
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+.card .play-button {
+
+    margin-top:
+        12px;
+
+    align-self:
+        flex-start;
+
+    padding:
+        9px 17px;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+#noResults {
+
+    display:
+        none;
+
+    text-align:
+        center;
+
+    color:
+        #777b93;
+
+    font-size:
+        18px;
+
+    padding:
+        50px;
+}
+
 
 /* =========================
    ABOUT
 ========================= */
 
 .info {
-    max-width: 850px;
 
-    margin: auto;
+    max-width:
+        850px;
 
-    padding: 100px 20px;
+    margin:
+        auto;
 
-    text-align: center;
+    padding:
+        100px 20px;
+
+    text-align:
+        center;
 }
 
 .info h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
+
+    font-size:
+        40px;
+
+    margin-bottom:
+        20px;
 }
 
 .info p {
-    color: #969bb1;
 
-    line-height: 1.8;
+    color:
+        #969bb1;
 
-    font-size: 17px;
+    line-height:
+        1.8;
+
+    font-size:
+        17px;
 }
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer {
-    padding: 50px;
 
-    text-align: center;
+    padding:
+        50px;
+
+    text-align:
+        center;
 
     border-top:
-        1px solid rgba(150,100,255,.12);
+        1px solid
+        rgba(150,100,255,.12);
 
-    color: #62677e;
-
-    background: rgba(0,0,0,.3);
+    color:
+        #62677e;
 }
 
-/* =========================
-   FLOATING PARTICLES
-========================= */
-
-.particle {
-    position: fixed;
-
-    width: 3px;
-    height: 3px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    pointer-events: none;
-
-    box-shadow:
-        0 0 8px white;
-
-    opacity: .7;
-
-    z-index: -1;
-}
 
 /* =========================
    MOBILE
@@ -499,33 +1009,85 @@ footer {
 
 @media(max-width:700px) {
 
-    .nav-links {
-        display: none;
+    .nav-links a {
+        display:
+            none;
     }
 
     .hero h1 {
-        font-size: 55px;
-        letter-spacing: -2px;
+
+        font-size:
+            55px;
+
+        letter-spacing:
+            -2px;
     }
 
     .galaxy {
-        width: 500px;
-        height: 500px;
+
+        width:
+            500px;
+
+        height:
+            500px;
     }
 
     .section {
-        padding: 70px 5%;
+
+        padding:
+            70px 5%;
+    }
+
+    .game-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(150px, 1fr)
+            );
+
+        gap:
+            15px;
+    }
+
+    .card {
+
+        padding:
+            14px;
+    }
+
+    .icon {
+
+        height:
+            100px;
+    }
+
+    .card h3 {
+
+        font-size:
+            18px;
+    }
+
+    .card p {
+
+        font-size:
+            12px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- Animated star canvas -->
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
 <canvas id="space"></canvas>
 
-<!-- CSS galaxy -->
 <div class="galaxy"></div>
 
 
@@ -536,16 +1098,168 @@ footer {
 <nav>
 
     <div class="logo">
+
         Edu<span>Classroom</span>
+
     </div>
 
+
     <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#subjects">Subjects</a>
-        <a href="#about">About</a>
+
+        <a href="#">
+            Home
+        </a>
+
+        <a href="#games">
+            Library
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <button
+            class="settings-button"
+            id="settingsButton"
+            title="Settings"
+        >
+            ⚙️
+        </button>
+
     </div>
 
 </nav>
+
+
+<!-- =========================
+     SETTINGS OVERLAY
+========================= -->
+
+<div
+    class="settings-overlay"
+    id="settingsOverlay"
+></div>
+
+
+<!-- =========================
+     SETTINGS PANEL
+========================= -->
+
+<div
+    class="settings-panel"
+    id="settingsPanel"
+>
+
+    <div class="settings-header">
+
+        <h2>
+            ⚙️ Settings
+        </h2>
+
+        <button
+            class="close-settings"
+            id="closeSettings"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="setting">
+
+        <label for="themeSelect">
+            Website Theme
+        </label>
+
+        <select id="themeSelect">
+
+            <option value="galaxy">
+                Galaxy Purple
+            </option>
+
+            <option value="blue">
+                Deep Blue
+            </option>
+
+            <option value="red">
+                Crimson
+            </option>
+
+            <option value="green">
+                Emerald
+            </option>
+
+            <option value="pink">
+                Neon Pink
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="setting">
+
+        <label for="titleInput">
+            Browser Tab Name
+        </label>
+
+        <input
+            id="titleInput"
+            type="text"
+            maxlength="40"
+            placeholder="EduClassroom"
+        >
+
+        <div class="small-note">
+
+            Change the name shown on
+            the browser tab.
+
+        </div>
+
+    </div>
+
+
+    <div class="setting">
+
+        <label for="iconInput">
+            Browser Tab Icon
+        </label>
+
+        <input
+            id="iconInput"
+            type="text"
+            placeholder="Paste an image URL"
+        >
+
+        <div class="small-note">
+
+            Paste a direct image URL
+            for your icon.
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="save-button"
+        id="saveSettings"
+    >
+        Save Settings
+    </button>
+
+
+    <button
+        class="reset-button"
+        id="resetSettings"
+    >
+        Reset Settings
+    </button>
+
+</div>
 
 
 <!-- =========================
@@ -557,23 +1271,39 @@ footer {
     <div class="hero-content">
 
         <div class="badge">
-            ✦ EXPLORE • LEARN • ACHIEVE
+
+            ✦ EXPLORE • PLAY • DISCOVER
+
         </div>
 
+
         <h1>
-            Edu<span class="gradient">Classroom</span>
+
+            Edu<span class="gradient">
+                Classroom
+            </span>
+
         </h1>
 
+
         <p>
-            Your universe of knowledge.
-            Explore subjects, build skills,
-            and discover new ideas through
-            learning.
+
+            Welcome to your universe of
+            interactive experiences.
+            Explore the collection,
+            find something fun,
+            and discover something new.
+
         </p>
 
-        <a href="#subjects" class="start-button">
-            Start Learning →
+
+        <a
+            href="#games"
+            class="start-button"
+        >
+            Browse Library →
         </a>
+
 
         <div class="search-container">
 
@@ -581,7 +1311,7 @@ footer {
                 class="search"
                 id="search"
                 type="text"
-                placeholder="🔎  Search for a subject..."
+                placeholder="🔎  Search..."
             >
 
         </div>
@@ -592,145 +1322,126 @@ footer {
 
 
 <!-- =========================
-     SUBJECTS
+     GAME LIBRARY
 ========================= -->
 
-<section class="section" id="subjects">
+<section
+    class="section"
+    id="games"
+>
 
     <div class="section-title">
 
         <h2>
-            Explore Subjects
+            Library
         </h2>
 
         <p>
-            Choose a subject and begin your journey.
+            Choose something to play.
         </p>
 
     </div>
 
 
-    <div class="subject-grid" id="subjectGrid">
+    <div
+        class="game-grid"
+        id="gameGrid"
+    >
 
+
+        <!-- =====================
+             HANGMAN
+        ====================== -->
 
         <div
             class="card"
-            data-name="math mathematics algebra geometry"
+            data-name="hangman word guessing puzzle"
         >
 
-            <div class="icon">π</div>
+            <div class="icon">
+
+                <img
+                    src="pages/images/hangman.png"
+                    alt="Hangman"
+                >
+
+            </div>
+
 
             <h3>
-                Mathematics
+                Hangman
             </h3>
 
+
             <p>
-                Explore numbers, equations,
-                algebra, geometry, and
-                problem solving.
+
+                Guess the hidden word
+                before you run out
+                of chances.
+
             </p>
+
+
+            <a
+                class="play-button"
+                href="pages/hangman/"
+            >
+                Play →
+            </a>
 
         </div>
 
 
+        <!-- =====================
+             ROOFTOP SNIPERS
+        ====================== -->
+
         <div
             class="card"
-            data-name="science biology chemistry physics"
+            data-name="rooftop snipers shooting action multiplayer"
         >
 
-            <div class="icon">⚗</div>
+            <div class="icon">
+
+                <img
+                    src="pages/images/rooftop-snipers.png"
+                    alt="Rooftop Snipers"
+                >
+
+            </div>
+
 
             <h3>
-                Science
+                Rooftop Snipers
             </h3>
 
+
             <p>
-                Discover biology, chemistry,
-                physics, experiments, and
-                the world around us.
+
+                Battle your opponent
+                on the rooftop and
+                knock them off.
+
             </p>
+
+
+            <a
+                class="play-button"
+                href="pages/rooftop-snipers/"
+            >
+                Play →
+            </a>
 
         </div>
 
 
-        <div
-            class="card"
-            data-name="english reading writing grammar"
-        >
-
-            <div class="icon">📖</div>
-
-            <h3>
-                English
-            </h3>
-
-            <p>
-                Improve reading, writing,
-                grammar, vocabulary, and
-                comprehension.
-            </p>
-
-        </div>
+    </div>
 
 
-        <div
-            class="card"
-            data-name="history geography social studies"
-        >
+    <div id="noResults">
 
-            <div class="icon">⌛</div>
-
-            <h3>
-                History
-            </h3>
-
-            <p>
-                Learn about important events,
-                civilizations, people, and
-                places.
-            </p>
-
-        </div>
-
-
-        <div
-            class="card"
-            data-name="computer science coding technology"
-        >
-
-            <div class="icon">&lt;/&gt;</div>
-
-            <h3>
-                Computer Science
-            </h3>
-
-            <p>
-                Learn about computers,
-                programming, technology,
-                and digital concepts.
-            </p>
-
-        </div>
-
-
-        <div
-            class="card"
-            data-name="study skills learning"
-        >
-
-            <div class="icon">🧠</div>
-
-            <h3>
-                Study Skills
-            </h3>
-
-            <p>
-                Discover techniques for
-                studying smarter, staying
-                organized, and learning.
-            </p>
-
-        </div>
+        Nothing found.
+        Try another search.
 
     </div>
 
@@ -741,73 +1452,98 @@ footer {
      ABOUT
 ========================= -->
 
-<section class="info" id="about">
+<section
+    class="info"
+    id="about"
+>
 
     <h2>
-        Learning Made Simple
+        Explore
     </h2>
 
     <p>
-        EduClassroom brings useful educational
-        topics together in one easy-to-use
-        learning environment. Explore subjects,
-        review important concepts, and continue
-        learning at your own pace.
+
+        Browse the library,
+        search for something specific,
+        and discover something new.
+
     </p>
 
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     © 2026 EduClassroom
-    • Educational Resource
 
 </footer>
 
 
 <script>
 
-/* ==========================================
-   INTERACTIVE STARFIELD
-========================================== */
 
-const canvas = document.getElementById("space");
-const ctx = canvas.getContext("2d");
+/* =========================
+   STARFIELD
+========================= */
+
+const canvas =
+    document.getElementById("space");
+
+const ctx =
+    canvas.getContext("2d");
 
 let stars = [];
 
 let mouse = {
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2
+
+    x:
+        window.innerWidth / 2,
+
+    y:
+        window.innerHeight / 2
+
 };
 
 
-/* Resize canvas */
-
 function resizeCanvas() {
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+    createStars();
 
 }
 
+
 resizeCanvas();
 
-window.addEventListener("resize", resizeCanvas);
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
 
 
-/* Mouse tracking */
+window.addEventListener(
+    "mousemove",
+    function(event) {
 
-window.addEventListener("mousemove", function(event) {
+        mouse.x =
+            event.clientX;
 
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
+        mouse.y =
+            event.clientY;
 
-});
+    }
+);
 
-
-/* Create stars */
 
 function createStars() {
 
@@ -823,25 +1559,38 @@ function createStars() {
             )
         );
 
-    for(let i = 0; i < amount; i++) {
+
+    for(
+        let i = 0;
+        i < amount;
+        i++
+    ) {
 
         stars.push({
 
-            x: Math.random() * canvas.width,
+            x:
+                Math.random() *
+                canvas.width,
 
-            y: Math.random() * canvas.height,
+            y:
+                Math.random() *
+                canvas.height,
 
             size:
-                Math.random() * 1.8 + .3,
+                Math.random() *
+                1.8 + .3,
 
             speed:
-                Math.random() * .25 + .05,
+                Math.random() *
+                .25 + .05,
 
             brightness:
-                Math.random() * .7 + .3,
+                Math.random() *
+                .7 + .3,
 
             twinkle:
-                Math.random() * Math.PI * 2
+                Math.random() *
+                Math.PI * 2
 
         });
 
@@ -849,10 +1598,6 @@ function createStars() {
 
 }
 
-createStars();
-
-
-/* Draw stars */
 
 function animateStars(time) {
 
@@ -866,74 +1611,95 @@ function animateStars(time) {
 
     for(const star of stars) {
 
-        /*
-         * Distance from mouse
-         */
+        const dx =
+            star.x - mouse.x;
 
-        const dx = star.x - mouse.x;
-        const dy = star.y - mouse.y;
+        const dy =
+            star.y - mouse.y;
 
         const distance =
-            Math.sqrt(dx * dx + dy * dy);
+            Math.sqrt(
+                dx * dx +
+                dy * dy
+            );
 
 
-        /*
-         * Mouse repulsion
-         */
-
-        const interactionRadius = 130;
+        const interactionRadius =
+            130;
 
 
-        if(distance < interactionRadius) {
+        if(
+            distance <
+            interactionRadius
+        ) {
 
             const force =
-                (interactionRadius - distance)
-                / interactionRadius;
+                (
+                    interactionRadius -
+                    distance
+                ) /
+                interactionRadius;
 
 
             const angle =
-                Math.atan2(dy, dx);
+                Math.atan2(
+                    dy,
+                    dx
+                );
 
 
             star.x +=
-                Math.cos(angle)
-                * force
-                * 4;
+                Math.cos(angle) *
+                force *
+                4;
 
 
             star.y +=
-                Math.sin(angle)
-                * force
-                * 4;
+                Math.sin(angle) *
+                force *
+                4;
 
         }
 
 
-        /*
-         * Slowly drift stars
-         */
-
-        star.y += star.speed;
+        star.y +=
+            star.speed;
 
 
-        /*
-         * Wrap around screen
-         */
-
-        if(star.y > canvas.height + 5) {
+        if(
+            star.y >
+            canvas.height + 5
+        ) {
 
             star.y = -5;
 
             star.x =
-                Math.random()
-                * canvas.width;
+                Math.random() *
+                canvas.width;
 
         }
 
 
-        /*
-         * Twinkle
-         */
+        if(
+            star.x <
+            -10
+        ) {
+
+            star.x =
+                canvas.width + 10;
+
+        }
+
+
+        if(
+            star.x >
+            canvas.width + 10
+        ) {
+
+            star.x = -10;
+
+        }
+
 
         const alpha =
             star.brightness +
@@ -945,6 +1711,7 @@ function animateStars(time) {
 
         ctx.beginPath();
 
+
         ctx.arc(
             star.x,
             star.y,
@@ -953,54 +1720,48 @@ function animateStars(time) {
             Math.PI * 2
         );
 
+
         ctx.fillStyle =
             `rgba(255,255,255,${Math.max(.1,alpha)})`;
 
+
         ctx.fill();
-
-
-        /*
-         * Glow around brighter stars
-         */
-
-        if(star.size > 1.3) {
-
-            ctx.beginPath();
-
-            ctx.arc(
-                star.x,
-                star.y,
-                star.size * 3,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fillStyle =
-                `rgba(140,100,255,${alpha * .12})`;
-
-            ctx.fill();
-
-        }
 
     }
 
 
-    requestAnimationFrame(animateStars);
+    requestAnimationFrame(
+        animateStars
+    );
 
 }
 
-requestAnimationFrame(animateStars);
+
+requestAnimationFrame(
+    animateStars
+);
 
 
-/* ==========================================
+/* =========================
    SEARCH
-========================================== */
+========================= */
 
 const search =
-    document.getElementById("search");
+    document.getElementById(
+        "search"
+    );
+
 
 const cards =
-    document.querySelectorAll(".card");
+    document.querySelectorAll(
+        ".card"
+    );
+
+
+const noResults =
+    document.getElementById(
+        "noResults"
+    );
 
 
 search.addEventListener(
@@ -1008,32 +1769,525 @@ search.addEventListener(
     function() {
 
         const query =
-            search.value.toLowerCase().trim();
+            search.value
+                .toLowerCase()
+                .trim();
 
 
-        cards.forEach(card => {
-
-            const keywords =
-                card.dataset.name;
+        let visibleGames = 0;
 
 
-            if(
-                keywords.includes(query)
-                || query === ""
-            ) {
+        cards.forEach(
+            card => {
 
-                card.style.display = "";
+                const keywords =
+                    card.dataset.name
+                        .toLowerCase();
 
-            } else {
 
-                card.style.display = "none";
+                if(
+                    keywords.includes(query) ||
+                    query === ""
+                ) {
+
+                    card.style.display =
+                        "";
+
+                    visibleGames++;
+
+                }
+
+                else {
+
+                    card.style.display =
+                        "none";
+
+                }
 
             }
+        );
 
-        });
+
+        noResults.style.display =
+            visibleGames === 0
+                ? "block"
+                : "none";
 
     }
 );
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+const settingsButton =
+    document.getElementById(
+        "settingsButton"
+    );
+
+
+const settingsPanel =
+    document.getElementById(
+        "settingsPanel"
+    );
+
+
+const settingsOverlay =
+    document.getElementById(
+        "settingsOverlay"
+    );
+
+
+const closeSettings =
+    document.getElementById(
+        "closeSettings"
+    );
+
+
+function openSettings() {
+
+    settingsPanel.classList.add(
+        "open"
+    );
+
+    settingsOverlay.classList.add(
+        "open"
+    );
+
+}
+
+
+function closeSettingsPanel() {
+
+    settingsPanel.classList.remove(
+        "open"
+    );
+
+    settingsOverlay.classList.remove(
+        "open"
+    );
+
+}
+
+
+settingsButton.addEventListener(
+    "click",
+    openSettings
+);
+
+
+closeSettings.addEventListener(
+    "click",
+    closeSettingsPanel
+);
+
+
+settingsOverlay.addEventListener(
+    "click",
+    closeSettingsPanel
+);
+
+
+/* =========================
+   THEMES
+========================= */
+
+const themeSelect =
+    document.getElementById(
+        "themeSelect"
+    );
+
+
+const themes = {
+
+    galaxy: {
+
+        background:
+            "#02030a",
+
+        accent:
+            "#8b5cf6",
+
+        accent2:
+            "#a855f7",
+
+        card:
+            "rgba(20,15,45,.75)"
+
+    },
+
+
+    blue: {
+
+        background:
+            "#020812",
+
+        accent:
+            "#3b82f6",
+
+        accent2:
+            "#06b6d4",
+
+        card:
+            "rgba(10,25,50,.75)"
+
+    },
+
+
+    red: {
+
+        background:
+            "#0d0204",
+
+        accent:
+            "#ef4444",
+
+        accent2:
+            "#f97316",
+
+        card:
+            "rgba(50,10,15,.75)"
+
+    },
+
+
+    green: {
+
+        background:
+            "#020c08",
+
+        accent:
+            "#10b981",
+
+        accent2:
+            "#22c55e",
+
+        card:
+            "rgba(5,35,25,.75)"
+
+    },
+
+
+    pink: {
+
+        background:
+            "#0c020b",
+
+        accent:
+            "#ec4899",
+
+        accent2:
+            "#d946ef",
+
+        card:
+            "rgba(45,8,40,.75)"
+
+    }
+
+};
+
+
+function applyTheme(themeName) {
+
+    const theme =
+        themes[themeName] ||
+        themes.galaxy;
+
+
+    document.documentElement.style
+        .setProperty(
+            "--background",
+            theme.background
+        );
+
+
+    document.documentElement.style
+        .setProperty(
+            "--accent",
+            theme.accent
+        );
+
+
+    document.documentElement.style
+        .setProperty(
+            "--accent2",
+            theme.accent2
+        );
+
+
+    document.documentElement.style
+        .setProperty(
+            "--card",
+            theme.card
+        );
+
+}
+
+
+/* =========================
+   TAB TITLE
+========================= */
+
+const titleInput =
+    document.getElementById(
+        "titleInput"
+    );
+
+
+function applyTitle(title) {
+
+    if(!title) {
+
+        title =
+            "EduClassroom";
+
+    }
+
+
+    document.title =
+        title;
+
+}
+
+
+/* =========================
+   FAVICON
+========================= */
+
+const iconInput =
+    document.getElementById(
+        "iconInput"
+    );
+
+
+const favicon =
+    document.getElementById(
+        "favicon"
+    );
+
+
+function applyIcon(url) {
+
+    if(!url) {
+
+        favicon.href =
+            "data:image/svg+xml," +
+            "<svg xmlns='http://www.w3.org/2000/svg' " +
+            "viewBox='0 0 100 100'>" +
+            "<text y='.9em' font-size='90'>🌌</text>" +
+            "</svg>";
+
+        return;
+
+    }
+
+
+    favicon.href =
+        url;
+
+}
+
+
+/* =========================
+   SAVE SETTINGS
+========================= */
+
+document.getElementById(
+    "saveSettings"
+).addEventListener(
+    "click",
+    function() {
+
+        const settings = {
+
+            theme:
+                themeSelect.value,
+
+            title:
+                titleInput.value.trim(),
+
+            icon:
+                iconInput.value.trim()
+
+        };
+
+
+        localStorage.setItem(
+            "educlassroomSettings",
+            JSON.stringify(settings)
+        );
+
+
+        applyTheme(
+            settings.theme
+        );
+
+
+        applyTitle(
+            settings.title
+        );
+
+
+        applyIcon(
+            settings.icon
+        );
+
+
+        closeSettingsPanel();
+
+    }
+);
+
+
+/* =========================
+   RESET SETTINGS
+========================= */
+
+document.getElementById(
+    "resetSettings"
+).addEventListener(
+    "click",
+    function() {
+
+        localStorage.removeItem(
+            "educlassroomSettings"
+        );
+
+
+        themeSelect.value =
+            "galaxy";
+
+
+        titleInput.value =
+            "EduClassroom";
+
+
+        iconInput.value =
+            "";
+
+
+        applyTheme(
+            "galaxy"
+        );
+
+
+        applyTitle(
+            "EduClassroom"
+        );
+
+
+        applyIcon(
+            ""
+        );
+
+    }
+);
+
+
+/* =========================
+   LOAD SETTINGS
+========================= */
+
+function loadSettings() {
+
+    const saved =
+        localStorage.getItem(
+            "educlassroomSettings"
+        );
+
+
+    if(!saved) {
+
+        applyTheme(
+            "galaxy"
+        );
+
+
+        applyTitle(
+            "EduClassroom"
+        );
+
+
+        applyIcon(
+            ""
+        );
+
+
+        return;
+
+    }
+
+
+    try {
+
+        const settings =
+            JSON.parse(
+                saved
+            );
+
+
+        themeSelect.value =
+            settings.theme ||
+            "galaxy";
+
+
+        titleInput.value =
+            settings.title ||
+            "EduClassroom";
+
+
+        iconInput.value =
+            settings.icon ||
+            "";
+
+
+        applyTheme(
+            settings.theme ||
+            "galaxy"
+        );
+
+
+        applyTitle(
+            settings.title ||
+            "EduClassroom"
+        );
+
+
+        applyIcon(
+            settings.icon ||
+            ""
+        );
+
+    }
+
+    catch(error) {
+
+        localStorage.removeItem(
+            "educlassroomSettings"
+        );
+
+
+        applyTheme(
+            "galaxy"
+        );
+
+
+        applyTitle(
+            "EduClassroom"
+        );
+
+
+        applyIcon(
+            ""
+        );
+
+    }
+
+}
+
+
+loadSettings();
 
 </script>
 
