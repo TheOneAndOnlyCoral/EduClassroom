@@ -1,0 +1,522 @@
+body {
+    font-family: "Lato", sans-serif;
+    overflow: hidden;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+a {
+    color: #1696d2;
+    text-decoration: none;
+}
+.note {
+    font-size: 11px;
+}
+#title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.label {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    margin: 25px 0 15px 0;
+
+}
+
+.label.below {
+    margin: 0px 0 35px 0;
+}
+/*SELECT MENU */
+
+select {
+/*    background-color: #332d2f !important;
+*/    padding: 30px;
+    color: #fff;
+
+}
+
+.ui-state-disabled.ui-menu-item {
+    display: none !important;
+}
+.ui-selectmenu-menu {
+
+}
+.ui-menu-item {
+    border-bottom: 1px solid #dcdbdb !important;
+    font-size: 16px;
+    text-align: center !important;
+}
+.ui-button {
+/*    padding-left: 0 !important;
+    padding-right: 0 !important;*/
+}
+.ui-selectmenu-button.ui-button {
+    background: #332d2f !important;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: Lato, sans-serif;
+    text-align: center !important;
+    width: auto !important;
+
+}
+
+.ui-menu .ui-menu-item-wrapper {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.ui-selectmenu-icon .ui-icon .ui-icon-triangle-1-s {
+    color: #fff;
+}
+.ui-selectmenu-icon.ui-icon {
+    margin-top: 3px !important;
+    margin-left: 3px !important;
+}
+.ui-widget-header {
+    border: 1px solid #dddddd;
+    background: #fff !important;
+    color: #333333;
+    font-weight: bold;
+}
+    .ui-selectmenu-text {
+    font-family: Lato, sans-serif;
+        font-size: 18px !important;
+        text-align: center;
+        color: #fff;
+        overflow: visible !important;
+        margin-right: 27px !important;
+        margin-left: 15px !important;
+    }
+
+.city-menu-div {
+    width: 49%;
+    float: left;
+    padding-left: 8px;
+}
+.state-menu-div {
+    width: 49%;
+    float: left;
+    padding-left: -5px;
+}
+
+#city-select-menu {
+}
+#city-menu {
+    background: #332d2f;
+    display: table;
+    margin: 0 auto;
+}
+
+#state-select-menu {
+}
+#state-menu {
+    background: #332d2f;
+    display: table;
+    margin: 0 auto;
+}
+
+/*.ui-selectmenu-text:nth-child(3n) {
+
+}*/
+
+
+
+/*SELECT MENU END */
+
+
+
+.switch-div {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#graph-container {
+/*    max-width: 690px;
+    width: 100%;*/
+}
+
+
+.urban-switch.large.long-name {
+    line-height: 14px;
+    margin-left: -2px;
+
+}
+
+
+
+
+.switch-label.hawaiian {
+    margin-left: 14px;
+}
+.urban-switch.large {
+    font-size: 13px;
+    font-family: Lato, sans-serif;
+    height: 26px;
+    border: none;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 26px;
+    text-align: right;
+    border-radius: 10px;
+    margin-top: 18px;
+    margin-right: 3px;
+    margin-left: 24px;
+}
+
+.ui-icon {
+    background: url(../img/urban-select.png) no-repeat right !important;
+    margin-right: 10px;
+
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #e6e7e8;
+  margin: 30px 0 16px 0;
+  display: block;
+}
+
+.data-label{
+    font-size: 13px;
+    font-weight: 500;
+    stroke: none !important;
+    opacity: 0;
+}
+
+.data-label.highlight, .data-label.selected {
+    opacity: 1;
+    stroke: none !important;
+
+}
+.data-label.selected {
+    font-weight: 700;
+}
+
+
+.sideline {
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+.sideline-label {
+    font-size: 12px;
+    font-weight: 700;
+}
+.sideline-label-text {
+    font-size: 12px;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.stateText, .cityText {
+    font-size: 16px;
+}
+
+.circle.highlight, .circle.selected {
+    stroke: #000;
+    stroke-width: 3px;
+}
+.cityText.no-city {
+    font-size: 16px;
+    fill: #9c9c9c;
+}
+.city-line {
+    stroke: #fbbe15;
+    stroke-width: 1px;
+    cursor: pointer;
+}
+    #isPhoneSmall {
+        display: none;
+    }
+
+.city-circle-left, .city-circle-right {
+    fill: #fbbe15;
+    cursor: pointer;
+
+}
+
+.state-circle-left, .state-circle-right {
+    fill: #1896d2;
+    cursor: pointer;
+
+}
+.highlight, .selected {
+    stroke: #000 !important;
+    stroke-width: 3px !important;
+}
+.state-line {
+    stroke: #1896d2;
+    stroke-width: 1px;
+    cursor: pointer;
+}
+
+.switch-label {
+    font-size: 13px;
+    color: #353535;
+    float: left;
+    vertical-align: middle;
+    max-width: 60px;
+    overflow-wrap: normal;
+}
+.switch.large.on {
+    background-position: -3px -.5px;
+    background-color: #1696d2;
+}
+
+.switch.large.off {
+    background-position: -37.5px -.4px;
+    background-color: #696969;
+}
+
+.switch.large {
+    background-image: url(../img/off-on-2.png);
+    background-color: #696969;
+    background-repeat: no-repeat;
+    /* width: 55px; */
+    /* height: 18px; */
+    /* border-radius: 10px; */
+    width: 60px;
+    height: 25.2px;
+    border-radius: 20px;
+    margin-left: 10px;
+    display: inline-block;
+    background-size: cover;
+    cursor: pointer;
+    margin-right: 9px;
+    position: relative;
+    -webkit-transition: background-position .1s ease-in;
+    -moz-transition: background-position .1s ease-in;
+    -o-transition: background-position .1s ease-in;
+    transition: background-position .1s ease-in;
+}
+#isMobile {
+    display: none;
+}
+#isPhone {
+    display: none;
+}
+@-moz-document url-prefix() {    
+    .state-menu-div {
+        width: 46%;
+    }
+    .city-menu-div {
+        width: 48%;
+    }
+}
+@media screen and (max-width: 670px) {
+    .long-name {
+        margin-left: inherit;
+    }
+    .urban-switch.large.white {
+        margin-left: 24px;
+    }
+    .urban-switch.large {
+        margin-left: 5px;
+        margin-right: 2px;
+    }
+    .urban-switch.large.alaskan {
+        margin-left: -22px !important;
+    }
+     .urban-switch.large.hawaiian {
+        margin-left: -20px !important;
+     }
+}
+@media screen and (max-width: 600px) {
+    .urban-switch.large {
+        margin-left: 18px;
+        margin-right: 10px;
+    }
+    .urban-switch.large.asian {
+        margin-left: 23px
+    }
+    .urban-switch.large.alaskan {
+        margin-left: 6px !important;
+    }
+    .urban-switch.large.american_indian {
+        margin-left: -7px !important;
+    }
+}
+@media screen and (max-width: 539px) {
+
+    .label {
+        text-align: center;
+    }
+    .ui-selectmenu-text {
+        margin-left: 40px !important;
+    }
+    #isMobile {
+        display: block;
+    }
+        .switch-div {
+            width: 100%;
+        }
+
+    .state-menu-div {
+        margin-top: calc(105vw - 35px);
+        left: 51%;
+        width: 100%;
+        position: absolute;
+        padding: 0;
+    }
+
+    .city-menu-div {
+        top: 15%;
+        left: 50%;
+        width: 100%;
+        padding: 0;
+
+    }
+    #city-menu {
+        display: block;
+        left: 51%;
+        background: #332d2f;
+    }
+    #state-menu {
+        display: block;
+        position: relative;
+        left: -51%;
+        background: #332d2f;
+    }
+    .urban-switch.large.american_indian{
+        margin-left: -14px !important;
+    }
+    .urban-switch.large.alaskan{
+        margin-left: -2px !important;
+    }
+    .urban-switch.large {
+        margin-left: 10px;
+        margin-right: 5px
+    }
+    .urban-switch.american_indian {
+        margin-left: -7px !important;
+    }
+    .urban-switch.alaskan{
+        margin-left: 14px !important;
+    }
+    .urban-switch.hawaiian{
+        margin-left: -22px !important;
+    }
+    body {
+        margin: 0px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .ui-selectmenu-text {
+        margin-left: 20px !important;
+    }
+    .urban-switch-large {
+        margin-left: 18px;
+        margin-right: 5px;
+    }
+
+
+}
+@media screen and (max-width: 430px) {
+    .urban-switch.large.american_indian{
+        margin-left: 0px !important;
+    }
+    .urban-switch.large.asian{
+        margin-left: 10px;
+    }
+    .urban-switch.large.alaskan {
+        margin-left: 8px !important;
+    }
+    .ui-selectmenu-text {
+        margin-left: calc(15vw + 10px) !important;
+    }
+/*    .ui-selectmenu-icon.ui-icon {
+        margin-left: 130px !important;
+    }*/
+    .switch-div {
+        width: 88%;
+    }
+    .switch-label {
+        float: inherit;
+        margin-bottom: 3px;
+    }
+     #isPhone {
+            display: block;
+        }
+    .urban-switch.white, .urban-switch.american_indian {
+        margin-left: 0px !important
+    }
+    .urban-switch.large.hawaiian {
+        margin-left: 9px !important;
+    }
+     .urban-switch.large {
+        text-align: center;
+        line-height: normal;
+     }
+    .switch.large {
+        margin-left: 0px;
+        margin-right: 0px;
+        line-height: inherit;
+        text-align: center;
+    }
+
+
+    .switch-label.alaskan, .switch-label.hawaiian {
+        margin-left: 0px;
+    }
+    .switch-label {
+        font-size: 12px;
+    }
+    .state-menu-div {
+        margin-top: calc(125vw + 30px);
+    }
+}
+@media screen and (max-width: 400px) {
+    .ui-selectmenu-text {
+        margin-left: calc(15vw + 0px) !important;
+    }
+
+}
+@media screen and (max-width: 350px) {
+    .urban-switch.large {
+        margin-right: 5px;
+        margin-left: 4px;
+        margin-top: 15px;
+    }
+    #isPhoneSmall {
+        display: block;
+    }
+    .state-menu-div {
+        margin-top: calc(130vw + 70px);
+    }
+    .switch.large {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 325px) {
+    .state-menu-div {
+        margin-top: calc(122vw + 70px);
+    }
+    .urban-switch.large.alaskan{
+        margin-left: 18px !important;
+    }
+    .urban-switch.large.asian {
+        margin-left: 0px !important;
+    }
+    .urban-switch.large.american_indian {
+        margin-left: 18px !important;
+    }
+    .urban-switch.large.hawaiian {
+        margin-left: 0px !important;
+        margin-bottom: 20px;
+    }
+
+    .ui-selectmenu-text {
+        margin-left: calc(3vw + 18px) !important;
+    }
+    .urban-switch.large {
+        margin-left: 18px;
+        margin-right: 2px;
+    }
+}
