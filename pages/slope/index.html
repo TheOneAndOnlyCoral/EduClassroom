@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slope Game Clone</title>
-    <style>
-        body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
-        #score {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic,900" rel="stylesheet" type="text/css">  
+  <style type="text/css">
+   body {
+            margin: 20px;
         }
-        #gameOver {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 48px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px #000;
-            display: none;
-            text-align: center;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 20px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-    </style>
+    
+    .pym {
+        max-width: 680px;
+    }
+    .graphtitle {
+        font-size: 18px;
+        color: #333;
+        font-weight: 700;
+        margin-left: .5em;
+        text-align: 30%;
+    }
+  /*@media  (min-width: 800px) {
+      #left-side {
+          width: 35%;
+      }
+     
+  } */
+  </style>
 </head>
 <body>
-    <div id="score">Score: 0</div>
-    <div id="gameOver">
-        <div>GAME OVER</div>
-        <button onclick="location.reload()">Restart</button>
-    </div>
-    
-    <!-- Load Three.js from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="game.js"></script>
+<div id ="graph" class="pym"></div>
+  <script type="text/javascript" src="js/vendor/pym.min.js"></script>
+  <script>
+        var pym1 = new pym.Parent('graph', 'child-slope.html', {});
+   </script>
 </body>
-</html>   
+</html>
